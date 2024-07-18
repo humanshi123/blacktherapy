@@ -13,6 +13,7 @@ import Video from 'next-video';
 import HomeIconCard from "@/components/HomeIconCard";
 import Footer from "@/components/Footer";
 import VideoPlayer from "@/components/VideoPlayer";
+import React, { CSSProperties } from 'react';
 
 export default function Home() {
 
@@ -30,7 +31,7 @@ export default function Home() {
   );
 }
 const FirstSection = () => {
-  const imgFlex = {
+  const imgFlex: CSSProperties = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
