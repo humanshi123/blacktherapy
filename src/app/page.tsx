@@ -30,7 +30,7 @@ export default function Home() {
     </div> 
   );
 }
-const FirstSection = () => {
+const FirstSection: React.FC = () => {
 
   return (
     <div className="text-center px-[27px] pt-12">
@@ -65,7 +65,8 @@ const FirstSection = () => {
           Get Started Now <ButtonSvg />
         </button>
         <div className="w-full">
-          <Image src={gridImg5} alt="Picture of the author" />
+        <VideoPlayer url='/assets/videos/videoone.mp4'/>
+
         </div>
       </div>
       <div className="third pl-[33px] w-[25%] flex flex-col items-center justify-between">
@@ -158,7 +159,7 @@ return (
 </div>
 );
 };
-const FifthSection =()=>{
+const FifthSection: React.FC =()=>{
   return (
    <div className="container py-[100px] ">
     <h2 className="section-title text-center mb-5">Fun Facts</h2>
@@ -178,7 +179,7 @@ const FifthSection =()=>{
       </div>
    </div>
    <div className="video-wrap"> 
-   <VideoPlayer/>
+   <VideoPlayer url='/assets/videos/therapyvideo.mp4'/>
     
    </div>
    </div> 

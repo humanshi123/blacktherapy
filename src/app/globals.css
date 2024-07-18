@@ -69,3 +69,14 @@ text-transform: capitalize;
 .react-player video {
   border-radius: 20px;
 }
+.bg-icons {
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  background: var(--Dark-Secondary, #343538);
+  display: grid;
+  place-items: center;
+}
+.button-arrow svg path {
+  fill: #686C78;
+}
