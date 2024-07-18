@@ -31,12 +31,7 @@ export default function Home() {
   );
 }
 const FirstSection = () => {
-  const imgFlex: CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
-  };
+
   return (
     <div className="text-center px-[27px] pt-12">
     <h1 className="font-antic text-[50px] text-[#13233B]">
@@ -57,7 +52,7 @@ const FirstSection = () => {
       </p>
     </div>
     <div className="image-grid flex mt-7">
-      <div style={imgFlex} className="first pr-[33px] w-[25%]">
+      <div className="first pr-[33px] w-[25%] flex flex-col items-center justify-between">
         <div className="h-full w-full pb-[26px]">
           <Image src={gridImg1} alt="Picture" className="h-full " />
         </div>
@@ -65,7 +60,7 @@ const FirstSection = () => {
           <Image src={gridImg2} alt="Picture of the author" />
         </div>
       </div>
-      <div style={imgFlex} className="second w-[50%] py-[17px]">
+      <div className="second w-[50%] py-[17px] flex flex-col items-center justify-between">
         <button className="button">
           Get Started Now <ButtonSvg />
         </button>
@@ -73,7 +68,7 @@ const FirstSection = () => {
           <Image src={gridImg5} alt="Picture of the author" />
         </div>
       </div>
-      <div style={imgFlex} className="third pl-[33px] w-[25%]">
+      <div className="third pl-[33px] w-[25%] flex flex-col items-center justify-between">
         <div className="w-full pb-[26px]">
           <Image src={gridImg3} alt="Picture of the author" />
         </div>
