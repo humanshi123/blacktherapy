@@ -27,7 +27,7 @@ export default function Home() {
       <FifthSection />
       
       <Footer />
-    </div>
+    </div> 
   );
 }
 const FirstSection = () => {
@@ -84,7 +84,7 @@ const FirstSection = () => {
   </div>
   );
 };
-const SecondSection =() => {
+const SecondSection: React.FC =() => {
   return (
     <div className="container mx-auto mt-[30px] pb-[100px]">
     <div className="flex items-center justify-between mb-[40px]">

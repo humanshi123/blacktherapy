@@ -11,9 +11,9 @@ const cardsData = [
         buttonLink: "#",
         imgSrc: cardImg1,
       },
-      {
+      { 
         id: 2,
-        title: "Couples",
+        title: "Couples", 
         buttonText: "Get Started",
         buttonLink: "#",
         imgSrc: cardImg2,
