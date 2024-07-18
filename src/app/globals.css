@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  background: #F4FFFE;
+}
+body, p {
+  font-family: var(--font-gotham);
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #13233B;
+  font-family: var(--font-antic);
+}
+.button {
+  color: #FFF;
+  font-family: var(--font-gotham);
+  font-size: 16px;
+  line-height: normal;
+  border-radius: 25px;
+  background: #283C63;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 30px;
+  height: 55px;
+}
+.image-grid img {
+  border-radius: 22.124px;
+  width: 100%;
+}
+.text-button {
+  display: flex;
+  align-items: center;
+  border-radius: 53.16px;
+  background: #FFF;
+  justify-content: space-between;
+  gap: 40px;
+  position: absolute;
+  bottom: -100%;
+  left: 27px;
+  width: calc(100% - 54px);
+}
+.card-wrapper:hover .text-button {
+  bottom: 19px;
+  transition: 0.7s;
+}
+.section-title {
+color: #13233B;
+font-size: 40px;
+line-height: normal;
+text-transform: capitalize;
+}
+.footer-logo svg path {
+  fill: #fff;
+}
+.footer-items ul li a {
+  font-size: 14px;
+  color: #686C78;
+}
+.footer-items ul li {
+  line-height: normal;
+}
+.react-player video {
+  border-radius: 20px;
+}
