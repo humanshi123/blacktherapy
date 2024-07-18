@@ -83,7 +83,7 @@ export default function Footer({ ...props }: Props) {
         </div>
       </div>
       </div>
-      <div className="Column-2 footer-items w-[25%]">
+      <div className="Column-22 footer-items w-[25%]">
         <h3 className="capitalize text-white text-lg mb-6"> Explore </h3>
         <ul className="flex flex-col items-start gap-5">
               <li>
@@ -105,9 +105,7 @@ export default function Footer({ ...props }: Props) {
               </li>
               <li>
                 <Link href="#">
-                
                     Our Therapist
-                 
                 </Link>
               </li>
               <li>
