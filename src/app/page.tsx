@@ -58,7 +58,7 @@ const FirstSection = () => {
     <div className="image-grid flex mt-7">
       <div style={imgFlex} className="first pr-[33px] w-[25%]">
         <div className="h-full w-full pb-[26px]">
-          <Image src={gridImg1} alt="" className="h-full " />
+          <Image src={gridImg1} alt="Picture" className="h-full " />
         </div>
         <div className="w-full">
           <Image src={gridImg2} alt="Picture of the author" />
@@ -116,7 +116,7 @@ const ThirdSection =() => {
       <div className="container py-[100px]">
         <div className="grid grid-cols-2 gap-[60px]">
           <div>
-            <Image src={gridImg7} alt="" className="w-full h-full rounded-[20px]"/>
+            <Image src={gridImg7} alt="Picture" className="w-full h-full rounded-[20px]"/>
           </div>
           <div>
             <h2 className="section-title !text-white">How It Works?</h2>
@@ -150,10 +150,10 @@ return (
  <h2 className="section-title mb-6">Benefits of Therapy</h2>
   <div className="flex items-center relative bg-[#CCE9FA] rounded-[20px]">
     <div className="w-[45%] pr-[20px]"> 
-      <Image src={gridImg6} alt="" className="rounded-[20px]"/>
+      <Image src={gridImg6} alt="Picture" className="rounded-[20px]"/>
     </div>
     <div className="w-[55%] pl-[50px] pr-[60px]">
-      <p className="text-gray-500 text-base font-normal leading-7">Therapy is a transformative journey that brings forth a wealth of benefits across all aspects of life. Whether you're an individual seeking personal growth, a couple navigating challenges, or a family fostering strong bonds, therapy offers a pathway to positive change. Through therapy, you can experience emotional healing, find resolution to conflicts, develop effective coping strategies, and gain profound insights into your thoughts and behaviors. Moreover, therapy fosters improved communication skills, which are crucial for navigating relationships successfully. With culturally sensitive therapy, like what we offer at the Black Therapy Network, you also gain the advantage of exploring your unique experiences within a supportive and understanding environment.</p>
+      <p className="text-gray-500 text-base font-normal leading-7">Therapy is a transformative journey that brings forth a wealth of benefits across all aspects of life. Whether you&apos;re an individual seeking personal growth, a couple navigating challenges, or a family fostering strong bonds, therapy offers a pathway to positive change. Through therapy, you can experience emotional healing, find resolution to conflicts, develop effective coping strategies, and gain profound insights into your thoughts and behaviors. Moreover, therapy fosters improved communication skills, which are crucial for navigating relationships successfully. With culturally sensitive therapy, like what we offer at the Black Therapy Network, you also gain the advantage of exploring your unique experiences within a supportive and understanding environment.</p>
     </div>
       <div className="absolute right-[-60px] top-[-60px] rotate-[-10deg] ">
         <YearExpIcon />

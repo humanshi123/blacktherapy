@@ -34,7 +34,7 @@ export default function Footer({ ...props }: Props) {
         <LogoIcon />
        </div>
         <p className="leading-7 text-[#686C78] text-sm mb-10">
-          CARF International accreditation demonstrates a program’s quality, transparency, and commitment to the
+          CARF International accreditation demonstrates a program&apos;s quality, transparency, and commitment to the
           satisfaction of the persons served. CARF International is an independent, nonprofit accreditor of health and
           human services.
         </p>
