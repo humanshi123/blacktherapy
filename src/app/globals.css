@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+      
 * {
   padding: 0;
   margin: 0;
@@ -9,7 +9,8 @@
 }
 :root {
   background: #F4FFFE;
-}
+
+}  
 body, p {
   font-family: var(--font-gotham);
 }
@@ -26,6 +27,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #283C63;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   padding: 15px 30px;
   height: 55px;
@@ -46,10 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 27px;
   width: calc(100% - 54px);
 }
-.card-wrapper:hover .text-button {
-  bottom: 19px;
-  transition: 0.7s;
-}
+
 .section-title {
 color: #13233B;
 font-size: 40px;
@@ -79,4 +78,44 @@ text-transform: capitalize;
 }
 .button-arrow svg path {
   fill: #686C78;
+}
+.about-dropdown .section-title.active svg {
+  transform: rotate(180deg);
+}
+@media (min-width: 768px) {
+  .card-wrapper:hover .text-button {
+    bottom: 19px;
+    transition: 0.7s;
+  }
+}
+@media (max-width: 767px) {
+  .flex-zero-auto {
+    flex: 0 0 auto;
+}
+.section-title {
+  font-size: 24px;
+  line-height: 38px;
+}
+.custom-size svg {
+  width: 80px;
+  height: 80px;
+}
+.text-button {
+  bottom: 19px;
+}
+.button {
+  font-size: 12px;
+  gap: 10px;
+  padding: 10px 25px;
+  height: 40px;
+}
+.footer-logo svg {
+  width: 219px;
+}
+.footer-dropdowns {
+  padding: 0 9px 15px;
+  border-bottom: 1px solid #686C78;
+}
+
+
 }

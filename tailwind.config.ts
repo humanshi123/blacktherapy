@@ -19,9 +19,11 @@ const config: Config = {
       },
       container: {
         center: true,
+        
         padding: {
           DEFAULT: '18px',
           sm: '18px',
+          md: '25px',
           lg: '30px',
           xl: '40px',
         },

@@ -1,11 +1,10 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
-import { PhoneIcon, MailIcon } from '@/utils/svgicons';
+import { PhoneIcon, MailIcon, LogoIcon, ToggleIcon, ToggleClose } from '@/utils/svgicons';
 import styled from 'styled-components';
 import logo from "../assets/logo.png";
 import Image from 'next/image';
-import { LogoIcon } from '@/utils/svgicons';
 interface NavMenuProps {
   isToggleOpen: boolean;
 }
@@ -33,7 +32,12 @@ const StyledHeader = styled.header`
   }
 
   @media screen and (max-width: 768px) {
-    padding: 35px 20px;
+    padding: 20px 18px;
+    .nav_logo {
+    .nav-logo-link svg {
+    max-width: 190px;
+}
+}
     .menuToggleBtn {
       display: block;
     }
@@ -56,14 +60,15 @@ const NavMenu = styled.ul<NavMenuProps>`
 
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};
-    flex-direction: column;
-    align-items: center;
     width: 100%;
     position: absolute;
     left: 0;
     top: 0;
-    padding: 20px;
-    background: #ccc;
+    padding: 40px 18px;
+    background: #d9e0e9;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 2;
   }
 `;
 
@@ -124,8 +129,8 @@ const Header = () => {
         </div>
 
         <NavMenu isToggleOpen={isToggleOpen}>
-          <button className="float-right md:hidden text-[20px]" onClick={handleToggleClose}>
-          <PhoneIcon />
+          <button className="absolute right-[18px] top-6  md:hidden text-[20px]" onClick={handleToggleClose}>
+          <ToggleClose/>
           </button>
           <li>
             <Link href="/" className="nav-menu-list">
@@ -152,14 +157,9 @@ const Header = () => {
               Contact
             </Link>
           </li>
-          <div className="relative block md:hidden">
-            <Link href="/login" className="button">
-              Login/Signup
-            </Link>
-          </div>
         </NavMenu>
         <p className="menuToggleBtn" onClick={handleToggleOpen}> 
-        <PhoneIcon />
+        <ToggleIcon />
         </p>
       </StyledHeader>
     </div>

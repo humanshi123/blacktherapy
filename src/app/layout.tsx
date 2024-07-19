@@ -3,6 +3,7 @@ import "./globals.css";
 import { Antic_Didone } from "next/font/google";
 import Header from "@/components/Header";
 import localFont from 'next/font/local'
+import Footer from "@/components/Footer";
 const gothamPro = localFont({
   src: '../assets/fonts/GothamPro.ttf',
   display: 'swap',
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body className={`${gothamPro.variable} ${anticDidone.variable}`}>
         <Header />
         {children}
-
+        <Footer />
       </body>
     </html>
   );

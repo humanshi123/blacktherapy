@@ -1,5 +1,6 @@
+"use client"
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import {
   ButtonSvg,
@@ -18,40 +19,63 @@ interface Props {
   className?: string;
 }
 
-export default function Footer({ ...props }: Props) {
+const Footer: React.FC = () =>{
+  const [isMobile, setIsMobile] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+    // Initial check
+    handleResize();
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+
+
+
+
   return (
     <div className="main">
-      <div className="relative z-[2] md:p-5">
+      <div className="relative z-[2]">
         <div className="container ">
-          <div className="grid grid-cols-2 items-center py-[50px] px-[100px] rounded-[20px] bg-[#fff] shadow-xs">
-            <div className="">
-              <h2 className="section-title mb-5">Stay Connected</h2>
-              <p className="max-w-[489px] text-gray-500 text-base leading-7">
+          <div className="grid md:grid-cols-2 items-center py-[40px] md:py-[50px] px-[15px] md:px-[100px] rounded-[20px] bg-[#fff] shadow-xs">
+            <div className="text-center md:text-left">
+              <h2 className="section-title mb-[10px] md:mb-5">Stay Connected</h2>
+              <p className="max-w-[489px] text-gray-500 md:text-base text-sm ">
                 Subscribe to get occasional emails from Rico. You can
                 unsubscribe at any time and we won&#39;t share your info.
               </p>
             </div>
-          <div className="">
-            <label htmlFor="" className="w-full text-right inline-block relative">
+          <div className="mt-[30px] md:mt-0">
+            <label htmlFor="" className="w-full md:text-right text-center inline-block relative">
             <input type="text" placeholder="Email" 
-            className="w-full max-w-[319px] border border-solid border-[#686C78] rounded-[24px] h-[55px] px-[30px] py-[10px] text-[16px] text-[#686C78] "
+            className="w-full max-w-[259px] md:max-w-[319px] border border-solid border-[#686C78] rounded-[24px] md:h-[55px] px-[30px] py-[9px] md:py-[10px] text-sm md:text-base text-[#686C78] "
             />
-            <button className="button-arrow p-2 absolute right-6 top-4"> <ButtonSvg/></button>
+            <button className="button-arrow p-2 absolute right-8 md:right-6 top-2 md:top-4"> <ButtonSvg/></button>
             </label>
           </div>
           </div>
         </div>
       </div>
       <div className="relative mt-[-112px]  bg-[#232529] py-[26px] sm:py-5">
-        <div className="container mt-[166px]">
-          <footer {...props} className={`${props.className} `}>
-            <div className="flex relative">
-              <div className="column-1 w-[50%]">
-                <div className="max-w-[489px]">
+        <div className="container mt-[140px] md:mt-[166px]">
+          <footer className=" relative">
+            <div className="md:flex grid relative">
+              <div className="column-1 md:w-[50%]">
+                <div className="md:max-w-[489px]">
                   <div className="footer-logo mb-[30px]">
                     <LogoIcon />
                   </div>
-                  <p className="leading-7 text-[#686C78] text-sm mb-10">
+                  <p className="md:leading-7 text-[#686C78] text-sm mb-10">
                     CARF International accreditation demonstrates a
                     program&apos;s quality, transparency, and commitment to the
                     satisfaction of the persons served. CARF International is an
@@ -65,7 +89,7 @@ export default function Footer({ ...props }: Props) {
                       </div>
                       <div className="flex flex-1 flex-col items-start justify-center">
                         <p className="text-[#8C8C8C] text-xs">Support Team</p>
-                        <p className="text-[#CACACA] text-sm">
+                        <p className="text-[#CACACA] text-xs md:text-sm">
                           (888) 383-6002 – Phone <br /> 980-333-4063 – Fax
                         </p>
                       </div>
@@ -76,7 +100,7 @@ export default function Footer({ ...props }: Props) {
                       </div>
                       <div className="">
                         <p className="text-[#8C8C8C] text-xs">Email</p>
-                        <p className="text-[#CACACA] text-sm">
+                        <p className="text-[#CACACA] text-xs md:text-sm">
                           hello@theblacktherapynetwork.com
                         </p>
                       </div>
@@ -89,7 +113,7 @@ export default function Footer({ ...props }: Props) {
                         <p className="text-[#8C8C8C] text-xs">
                           Mailing Address
                         </p>
-                        <p className="leading-5 text-[#CACACA] text-sm">
+                        <p className="leading-5 text-[#CACACA] text-xs md:text-sm">
                           The Ship Group Services , P.O. BOX 42915 ,<br />
                           Charlotte, North Carolina 28215
                         </p>
@@ -98,12 +122,16 @@ export default function Footer({ ...props }: Props) {
                   </div>
                 </div>
               </div>
-              <div className="Column-22 footer-items w-[30%]">
-                <h3 className="capitalize text-white text-lg mb-6">
-                  {" "}
-                  Explore{" "}
+              <div className="Column-22 footer-items md:w-[30%] mt-10 md:mt-0">
+                <h3 className="footer-dropdowns capitalize text-white text-lg mb-6"
+                onClick={isMobile ? toggleDropdown : undefined}>
+                  Explore
                 </h3>
-                <ul className="flex flex-col items-start gap-5">
+                {(isMobile && isDropdownOpen) || !isMobile ? (
+                <div  className={`transition-max-height duration-300 ease-in-out overflow-hidden ${
+                  isMobile ? (isDropdownOpen ? 'max-h-screen' : 'max-h-0') : 'max-h-screen'
+                } mb-8`}>
+               <ul className="flex flex-col items-start gap-5 pl-[9px] md:pl-0">
                   <li>
                     <Link href="#">About us</Link>
                   </li>
@@ -127,13 +155,19 @@ export default function Footer({ ...props }: Props) {
                     </Link>
                   </li>
                 </ul>
+               </div>
+              ) : null}
               </div>
-              <div className="column-3 footer-items w-[20%]">
-                <h3 className="capitalize text-white text-lg mb-6">
-                  {" "}
-                  Support{" "}
+              <div className="column-3 footer-items md:w-[20%]">
+                <h3 className="footer-dropdowns capitalize text-white text-lg mb-6"
+                onClick={isMobile ? toggleDropdown : undefined} >
+                  Support
                 </h3>
-                <ul className="flex flex-col items-start gap-5">
+                {(isMobile && isDropdownOpen) || !isMobile ? (
+              <div  className={`transition-max-height duration-300 ease-in-out overflow-hidden ${
+                isMobile ? (isDropdownOpen ? 'max-h-screen' : 'max-h-0') : 'max-h-screen'
+              }`}>
+                  <ul className="flex flex-col items-start gap-5 pl-[9px] md:pl-0">
                   <li>
                     <Link href="#">Contact us</Link>
                   </li>
@@ -159,28 +193,30 @@ export default function Footer({ ...props }: Props) {
                     <Link href="#">Call Center</Link>
                   </li>
                 </ul>
-               <div className="aasdsda">
-               <Image
-                  src={footergif}
-                  width={138}
-                  height={138}
-                  alt="Comp1one"
-                  className="h-[138px] w-[138px] self-end object-cover"
-                />
-               </div>
+              </div>
+               ) : null}
               </div>
             </div>
             <div className="copyright mt-[66px]">
-              <div className="flex justify-between items-center">
-                <div className="icon flex items-center gap-2">
+              <div className="grid md:grid-cols-2 items-center">
+                <div className="icon flex items-center gap-2 justify-center md:justify-start">
                   <p className="bg-icons"> <FacebookIcon /> </p>
                   <p className="bg-icons"><YouTubeIcon /></p>
                   <p className="bg-icons"><DribbleIcon /> </p>
                   <p className="bg-icons"><FigmaIcon /> </p>
                   <p className="bg-icons"><WhatsappIcon /></p>
                 </div>
-                <div>
-                  <p className="text-neutral-400 text-sm">© 2000-2024, All Rights Reserved</p>
+                <div className="md:absolute bottom-[90px] right-[40px] pt-[40px] pb-5 md:py-0">
+               <Image
+                  src={footergif}
+                  width={138}
+                  height={138}
+                  alt="Comp1one"
+                  className="h-[138px] w-[138px] mx-auto self-end object-cover"
+                />
+               </div>
+                <div className="md:text-right text-center">
+                  <p className="text-neutral-400 text-xs md:text-sm">© 2000-2024, All Rights Reserved</p>
                 </div>
               </div>
             </div>
@@ -189,4 +225,5 @@ export default function Footer({ ...props }: Props) {
       </div>
     </div>
   );
-}
+};
+export default Footer;
