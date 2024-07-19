@@ -14,6 +14,7 @@ const Page: React.FC = () => {
   const heading = "Normalizing: Therapy in Black Community";
   const imageUrl = banner;
 
+
   return (
     <div>
       <BannerSection

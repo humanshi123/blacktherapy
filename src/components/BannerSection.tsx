@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import Image from 'next/image';
+import Image, {StaticImageData} from 'next/image';
 import Link from 'next/link';
 interface Breadcrumb {
   label: string;
@@ -9,7 +9,7 @@ interface Breadcrumb {
 interface BannerSectionProps {
   breadcrumbs: Breadcrumb[];
   heading: string;
-  imageUrl: string;
+  imageUrl: string | StaticImageData;
 }
 
 const BannerSection: React.FC<BannerSectionProps> = ({ breadcrumbs, heading, imageUrl }) => {

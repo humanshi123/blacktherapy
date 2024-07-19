@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';  
-import Image, {StaticImageData } from 'next/image';
+import Image, {StaticImageData} from 'next/image';
 import Link from 'next/link';
 import { ButtonSvg } from '@/utils/svgicons';
 interface CardProps {
