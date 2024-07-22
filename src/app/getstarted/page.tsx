@@ -17,7 +17,7 @@ const Page = () => {
                         <p className='start'><FaqTitle /></p>
                         <div>
                             <h3 className='text-slate-600 text-[18px] md:text-[22px]'>Individual</h3>
-                            <p>Therapy for me!!</p>
+                            <p className='text-gray-500 text-base'>Therapy for me!!</p>
                         </div>
                     </div>
                     <div>
@@ -29,7 +29,7 @@ const Page = () => {
                         <p className='start'><FaqTitle /></p>
                         <div>
                             <h3 className='text-slate-600 text-[18px] md:text-[22px]'>Individual</h3>
-                            <p>Therapy for me!!</p>
+                            <p className='text-gray-500 text-base'>Therapy for me!!</p>
                         </div>
                     </div>
                     <div>
@@ -41,7 +41,7 @@ const Page = () => {
                         <p className='start'><FaqTitle /></p>
                         <div>
                             <h3 className='text-slate-600 text-[18px] md:text-[22px]'>Individual</h3>
-                            <p>Therapy for me!!</p>
+                            <p className='text-gray-500 text-base'>Therapy for me!!</p>
                         </div>
                     </div>
                     <div>
