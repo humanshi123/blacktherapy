@@ -78,7 +78,7 @@ const Header = () => {
             <Link href="/faq" className="nav-menu-list">FAQ</Link>
           </li>
           <li>
-            <Link href="/contact" className="nav-menu-list inline-block ext-sm text-white bg-slate-700 rounded-[30px] px-[30px] py-[13px]">Contact</Link>
+            <Link href="/contact" className="nav-menu-list inline-block ext-sm text-white bg-slate-700 rounded-[30px] !px-[30px] !py-[13px]">Contact</Link>
           </li>
         </ul>
         <p className="menuToggleBtn md:hidden" onClick={handleToggleOpen}>
