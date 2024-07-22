@@ -7,7 +7,7 @@ interface Breadcrumb {
   url: string;
 }
 interface BannerSectionProps {
-  breadcrumbs: Breadcrumb[];
+  breadcrumbs: Breadcrumb[]; 
   heading: string;
   imageUrl: string | StaticImageData;
 }

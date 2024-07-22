@@ -69,7 +69,7 @@ const Footer: React.FC = () =>{
       <div className="relative mt-[-112px]  bg-[#232529] py-[26px] sm:py-5">
         <div className="container mt-[140px] md:mt-[166px]">
           <footer className=" relative">
-            <div className="md:flex grid relative">
+            <div className="md:flex justify-between grid relative">
               <div className="column-1 md:w-[50%]">
                 <div className="md:max-w-[489px]">
                   <div className="footer-logo mb-[30px]">
@@ -122,7 +122,7 @@ const Footer: React.FC = () =>{
                   </div>
                 </div>
               </div>
-              <div className="Column-22 footer-items md:w-[30%] mt-10 md:mt-0">
+              <div className="Column-22 footer-items md:w-[25%] mt-10 md:mt-0">
                 <h3 className="footer-dropdowns capitalize text-white text-lg mb-6"
                 onClick={isMobile ? toggleDropdown : undefined}>
                   Explore
@@ -133,7 +133,7 @@ const Footer: React.FC = () =>{
                 } mb-8`}>
                <ul className="flex flex-col items-start gap-5 pl-[9px] md:pl-0">
                   <li>
-                    <Link href="#">About us</Link>
+                    <Link href="/about">About us</Link>
                   </li>
                   <li>
                     <Link href="#">Book Appointment</Link>
@@ -142,15 +142,15 @@ const Footer: React.FC = () =>{
                     <Link href="#">Letest News</Link>
                   </li>
                   <li>
-                    <Link href="#">Our Therapist</Link>
+                    <Link href="/ourtherapist">Our Therapist</Link>
                   </li>
                   <li>
-                    <Link href="FAQ" target="_blank" rel="noreferrer">
+                    <Link href="/faq" rel="noreferrer">
                       FAQ
                     </Link>
                   </li>
                   <li>
-                    <Link href="Contact" target="_blank" rel="noreferrer">
+                    <Link href="/contact" rel="noreferrer">
                       Contact
                     </Link>
                   </li>
@@ -158,53 +158,15 @@ const Footer: React.FC = () =>{
                </div>
               ) : null}
               </div>
-              <div className="column-3 footer-items md:w-[20%]">
-                <h3 className="footer-dropdowns capitalize text-white text-lg mb-6"
-                onClick={isMobile ? toggleDropdown : undefined} >
-                  Support
-                </h3>
-                {(isMobile && isDropdownOpen) || !isMobile ? (
-              <div  className={`transition-max-height duration-300 ease-in-out overflow-hidden ${
-                isMobile ? (isDropdownOpen ? 'max-h-screen' : 'max-h-0') : 'max-h-screen'
-              }`}>
-                  <ul className="flex flex-col items-start gap-5 pl-[9px] md:pl-0">
-                  <li>
-                    <Link href="#">Contact us</Link>
-                  </li>
-                  <li>
-                    <Link href="#">Online Chat</Link>
-                  </li>
-                  <li>
-                    <Link href="Whatsapp" target="_blank" rel="noreferrer">
-                      Whatsapp
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="Telegram" target="_blank" rel="noreferrer">
-                      Telegram
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="Ticketing" target="_blank" rel="noreferrer">
-                      Ticketing
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">Call Center</Link>
-                  </li>
-                </ul>
-              </div>
-               ) : null}
-              </div>
             </div>
             <div className="copyright mt-[66px]">
               <div className="grid md:grid-cols-2 items-center">
                 <div className="icon flex items-center gap-2 justify-center md:justify-start">
-                  <p className="bg-icons"> <FacebookIcon /> </p>
-                  <p className="bg-icons"><YouTubeIcon /></p>
-                  <p className="bg-icons"><DribbleIcon /> </p>
-                  <p className="bg-icons"><FigmaIcon /> </p>
-                  <p className="bg-icons"><WhatsappIcon /></p>
+                  <a href="https://www.facebook.com/TheBlackTherapyNetwork" target="_blank" rel="noopener noreferrer" className="bg-icons"><FacebookIcon /></a>
+                  <a href="" className="bg-icons"><YouTubeIcon /></a>
+                  <a href="" className="bg-icons"><DribbleIcon /> </a>
+                  <a href="" className="bg-icons"><FigmaIcon /> </a>
+                  <a href="" className="bg-icons"><WhatsappIcon /></a>
                 </div>
                 <div className="md:absolute bottom-[90px] right-[40px] pt-[40px] pb-5 md:py-0">
                <Image

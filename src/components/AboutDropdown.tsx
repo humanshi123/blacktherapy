@@ -29,7 +29,7 @@ const AboutThird: React.FC = () => {
 
   return (
     <div className="about-dropdown container py-[50px] md:py-[100px]">
-      <div className="py-[50px] pl-[80px] pr-[50px]  grid md:grid-cols-[minmax(0,_7fr)_minmax(0,_5fr)] bg-[#283C63] rounded-[20px]">
+      <div className="gap-5 md:gap-0 md:p-[35px] p-5 lg:py-[50px] lg:pl-[80px] lg:pr-[50px]  grid md:grid-cols-[minmax(0,_7fr)_minmax(0,_5fr)] bg-[#283C63] rounded-[20px]">
         <div className="md:pr-[55px]">
           {dropdownData.map((dropdown, index) => (
             <div className='border-b-[1px] pb-8 mb-3 border-slate-500' key={index}>
@@ -40,7 +40,7 @@ const AboutThird: React.FC = () => {
                 onClick={() => toggleDropdown(index)}
               >
                 {dropdown.title}
-                <DropDown/>
+                <span className='drop'><DropDown /></span>
               </h2>
               <div
                 className={`transition-max-height duration-300 ease-in-out overflow-hidden ${
