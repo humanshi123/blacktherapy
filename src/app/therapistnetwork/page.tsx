@@ -81,7 +81,7 @@ const GetStarted: React.FC = () => {
                      <div className='absolute bottom-[2px] left-[33.6%] z-[-1] hidden lg:block'><LineTwo /></div>
                   </div>
                   <div className='step-row grid lg:grid-cols-[minmax(0,_6fr)_minmax(0,_6fr)] gap-[10px] items-center lg:gap-[20px]'>
-                   <div className='step-number lg:text-right lg:pr-[160px]'>  
+                   <div className='step-number lg:text-right lg:pr-[80px]'>  
                        <NumberCard 
                          Count='03'
                        />
