@@ -44,10 +44,13 @@ const Footer: React.FC = () =>{
 
 
   return (
-    <div className="main">
+    <div className="main-footer">
       <div className="relative z-[2]">
         <div className="container ">
-          <div className="grid md:grid-cols-2 items-center py-[40px] md:py-[50px] px-[15px] md:px-[100px] rounded-[20px] bg-[#fff] shadow-xs">
+           <div
+             className="grid md:grid-cols-2 items-center py-[40px] md:py-[50px] px-[15px] md:px-[100px] rounded-[20px] bg-[#fff] shadow-xs"
+             style={{ boxShadow: '0px -6px 24px 0px rgba(0, 0, 0, 0.10)' }}
+             >
             <div className="text-center md:text-left">
               <h2 className="section-title mb-[10px] md:mb-5">Stay Connected</h2>
               <p className="max-w-[489px] text-gray-500 md:text-base text-sm ">

@@ -49,13 +49,13 @@ const Header = () => {
           </div>
         </div>
         <div className="right flex items-center gap-6">
-        <Link href="#" className="text-white text-xs">
-        Login/Sign Up
+        <Link href="/login" className="text-white text-xs">
+             Login/Sign Up
             </Link>
         </div>
       </div>
       </div>
-      <div className='nav-container w-full max-w-[1260px] mx-auto flex items-center justify-between px-[30px] pt-5'>
+      <div className='nav-container w-full max-w-[1260px] mx-auto flex items-center justify-between pt-5 px-[15px]  md:px-[25px]'>
         <div className="nav_logo">
           <Link href="/" className="nav-logo-link">
             <LogoIcon />

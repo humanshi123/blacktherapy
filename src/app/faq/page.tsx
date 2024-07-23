@@ -37,7 +37,7 @@ const faqData = [
 
 const Page: React.FC = () => {
   const breadcrumbs = [
-    { label: "Home  /", url: "/" },
+    { label: "Home", url: "/" },
     { label: "FAQs", url: "/faq" },
   ];
   const heading = "Frequently Asked Questions";
@@ -68,7 +68,7 @@ const Page: React.FC = () => {
       <div className="">
         <div className="md:pr-[55px]">
           {faqData.map((dropdown, index) => (
-            <div className='md:mb-[30px] mb-3' key={index}>
+            <div className='md:mb-[10px] mb-3' key={index}>
               <h2
                 className={`md:text-lg text-base py-[10px] px-3 md:p-5 bg-[#283C63] rounded-[20px] !text-white cursor-pointer flex justify-between md:items-center ${
                     dropdownStates[index] ? 'active' : ''
@@ -83,7 +83,7 @@ const Page: React.FC = () => {
                   dropdownStates[index] ? 'max-h-screen' : 'max-h-0'
                 }`}
               >
-                <p className='text-base md:leading-7 mt-3 md:mt-5 text-[#686C78] px-3 md:px-[62px]'>{dropdown.content}</p>
+                <p className='text-base md:leading-7 mt-3 md:mt-5 text-[#686C78] px-3 pb-[20px] md:px-[62px]'>{dropdown.content}</p>
               </div>
             </div>
           ))}

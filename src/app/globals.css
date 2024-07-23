@@ -14,6 +14,9 @@
 body, p {
   font-family: var(--font-gotham);
 }
+.container { 
+  max-width: 1280px; 
+}
 h1, h2, h3, h4, h5, h6 {
   color: #13233B;
   font-family: var(--font-antic);
@@ -48,7 +51,9 @@ h1, h2, h3, h4, h5, h6 {
   left: 27px;
   width: calc(100% - 54px);
 }
-
+.inner p {
+  padding-bottom: 10px;
+}
 .section-title {
 color: #13233B;
 font-size: 40px;
@@ -121,6 +126,70 @@ text-transform: capitalize;
   width: 50px;
   height: 50px;
 }
+.breadcrumbs-outer li::after {
+  position: absolute;
+  content: "/";
+  color: #fff;
+  top: -2px;
+  right: 2px;
+}
+.breadcrumbs-outer li {
+  position: relative;
+  padding-right: 18px;
+}
+.breadcrumbs-outer li:last-child {
+    padding-right: 0;
+}
+.breadcrumbs-outer li:last-child::after {
+ display: none;
+}
+.form-feild input, .form-feild select, .form-feild textarea {
+  border-radius: 20px;
+  border: 1px solid #DBE1EC;
+  background: #FFF;
+  width: 100%;
+  color: #686C78;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  padding: 18px 28px;
+  min-height: 66px;  
+}
+.form-feild input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #686C78;
+}
+.form-feild input::-moz-placeholder { /* Firefox 19+ */
+  color: #686C78;
+}
+.form-feild input:-ms-input-placeholder { /* IE 10+ */
+  color: #686C78;
+}
+.form-feild input:-moz-placeholder { /* Firefox 18- */
+  color: #686C78;
+}
+.form-feild textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #686C78;
+}
+.form-feild textarea::-moz-placeholder { /* Firefox 19+ */
+  color: #686C78;
+}
+.form-feild textarea:-ms-input-placeholder { /* IE 10+ */
+  color: #686C78;
+}
+.form-feild intextareaput:-moz-placeholder { /* Firefox 18- */
+  color: #686C78;
+}
+.form-feild {
+  margin-bottom: 24px;
+}
+.form-feild textarea {
+  min-height: 220px;
+}
+.custom-css p {
+  margin-bottom: 12px;
+  word-wrap: break-word;
+}
 @media (min-width: 768px) {
   .card-wrapper:hover .text-button {
     bottom: 19px;
@@ -134,8 +203,24 @@ text-transform: capitalize;
   .nav-menu-list {
     font-size: 15px;
   }
+  .nav_logo a.nav-logo-link svg {
+    max-width: 190px;
+}
 }
 @media (max-width: 767px) {
+  .form-feild input, .form-feild select, .form-feild textarea {
+    font-size: 14px;
+    line-height: 28px;
+    padding: 12px 18px;
+    min-height: 54px;
+}
+  .step-icon svg {
+    width: 40px;
+}
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
   .flex-zero-auto {
     flex: 0 0 auto;
 }

@@ -29,7 +29,7 @@ const dataSlider = [
 
 const Page: React.FC = () => {
   const breadcrumbs = [
-    { label: "Home  /", url: "/" },
+    { label: "Home", url: "/" },
     { label: "About", url: "/about" },
   ];
   const heading = "Normalizing: Therapy in Black Community";

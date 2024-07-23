@@ -1,9 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import about2 from "../../assets/images/img9.png";
 import { FaqTitle, GettingStart } from '@/utils/svgicons';
 import Link from 'next/link';
-
+import GetStartedImage from '@/assets/images/started-banner.jpg'
 const Page = () => {
     return (
         <div className='container pt-[50px] py-[40px] md:pb-[100px]'>
@@ -51,7 +50,7 @@ const Page = () => {
             </div>
             </div>
             <div className='order-1 md:order-none '>
-                <Image src={about2} alt="get started" className='rounded-[20px] w-full'/>
+                <Image src={GetStartedImage} alt="get started" className='rounded-[20px] w-full'/>
             </div>
             </div>
         </div>
