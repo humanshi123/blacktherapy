@@ -53,17 +53,17 @@ const Footer: React.FC = () =>{
              >
             <div className="text-center md:text-left">
               <h2 className="section-title mb-[10px] md:mb-5">Stay Connected</h2>
-              <p className="max-w-[489px] text-gray-500 md:text-base text-sm ">
+              <p className="max-w-[489px] text-gray-500 md:text-base text-sm mx-auto md:mx-0">
                 Subscribe to get occasional emails from Rico. You can
                 unsubscribe at any time and we won&#39;t share your info.
               </p>
             </div>
-          <div className="mt-[30px] md:mt-0">
-            <label htmlFor="" className="w-full md:text-right text-center inline-block relative">
+          <div className="mt-[30px] md:mt-0 text-center">
+            <label htmlFor="" className="w-full max-w-[259px] md:max-w-full md:text-right text-center inline-block relative">
             <input type="text" placeholder="Email" 
             className="w-full max-w-[259px] md:max-w-[319px] border border-solid border-[#686C78] rounded-[24px] md:h-[55px] px-[30px] py-[9px] md:py-[10px] text-sm md:text-base text-[#686C78] "
             />
-            <button className="button-arrow p-2 absolute right-8 md:right-6 top-2 md:top-4"> <ButtonSvg/></button>
+            <button className="button-arrow p-2 absolute right-5 md:right-6 top-2 md:top-4"> <ButtonSvg/></button>
             </label>
           </div>
           </div>

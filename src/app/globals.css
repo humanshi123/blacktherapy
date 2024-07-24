@@ -6,7 +6,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
+} 
 :root {
   background: #F4FFFE;
 
@@ -190,11 +190,42 @@ text-transform: capitalize;
   margin-bottom: 12px;
   word-wrap: break-word;
 }
+.scrolling {
+  -webkit-animation: scrollUp 8s linear infinite normal;
+  animation: scrollUp 8s linear infinite normal;
+}
+
+ 
+ @-webkit-keyframes scrollUp {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+
+ @keyframes scrollUp {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
 @media (min-width: 768px) {
   .card-wrapper:hover .text-button {
     bottom: 19px;
     transition: 0.7s;
   }
+}
+@media (min-width: 989px) {
 }
 @media screen and (max-width: 1024px) {
   .nav-menu {
@@ -202,10 +233,39 @@ text-transform: capitalize;
   }
   .nav-menu-list {
     font-size: 15px;
+    color: #283C63;
   }
   .nav_logo a.nav-logo-link svg {
     max-width: 190px;
 }
+.nav-menu {
+  display: none;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 40px 18px;
+  background: #d9e0e9;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 2;
+  flex-direction: column;
+}
+.nav-menu.open {
+  display: block;
+}
+.menuToggleBtn {
+  display: block;
+}
+.nav-menu .close-btn {
+  position: absolute;
+  right: 18px;
+  top: 22px;
+  font-size: 20px;
+}
+
+
+
 }
 @media (max-width: 767px) {
   .form-feild input, .form-feild select, .form-feild textarea {
@@ -250,35 +310,17 @@ text-transform: capitalize;
   border-bottom: 1px solid #686C78;
 }
 .footer-dropdowns:after {
-  content: url(/_next/static/media/Line.eb1eee1a.svg);
+  content: url(../assets/images/Line.svg);
   position: absolute;
   right: 9px;
   top: 3px;
+  width: 20px;
 }
-.nav-menu {
-  display: none;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 40px 18px;
-  background: #d9e0e9;
-  height: 100vh;
-  overflow-y: auto;
-  z-index: 2;
-  flex-direction: column;
+.aboutslider .swiper-pagination {
+  margin-top: 20px;
 }
-.nav-menu.open {
-  display: block;
-}
-.menuToggleBtn {
-  display: block;
-}
-.nav-menu .close-btn {
-  position: absolute;
-  right: 18px;
-  top: 6px;
-  font-size: 20px;
+.aboutslider {
+  background-image: url(../assets/images/img13.png);
 }
 
 }

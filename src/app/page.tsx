@@ -14,7 +14,10 @@ import HomeIconCard from "@/components/HomeIconCard";
 import Footer from "@/components/Footer";
 import VideoPlayer from "@/components/VideoPlayer";
 import React, { CSSProperties } from 'react';
+import Link from "next/link";
+import { metadata } from './metadata';
 
+export { metadata };
 
 export default function Home() {
 
@@ -36,7 +39,7 @@ const FirstSection: React.FC = () => {
     <h1 className="font-antic md:text-[50px] text-[34px] text-[#13233B]">
       Your Wellness <br /> Journey Starts Now
     </h1>
-    <div className="flex items-center justify-start md:justify-center gap-[45px] mt-7 overflow-x-auto">
+    <div className="flex items-center pb-3 md:pb-0 justify-start md:justify-center gap-[45px] mt-7 overflow-x-auto">
       <p className="flex text-sm items-center gap-[15px] flex-zero-auto">
         {" "}
         <TherapyIcon1 /> Therapy for Individuals
@@ -60,9 +63,9 @@ const FirstSection: React.FC = () => {
         </div>
       </div>
       <div className="second md:w-[50%] md:py-[17px] flex flex-col-reverse gap-[30px] md:flex-col items-center justify-between">
-        <button className="button">
-          Get Started Now <ButtonSvg />
-        </button>
+      <Link href="/getstarted" rel="" className="button">
+        Get Started Now <ButtonSvg />
+       </Link>
         <div className="w-full">
         <VideoPlayer url='/assets/videos/videoone.mp4'/>
 
@@ -109,13 +112,13 @@ const ThirdSection =() => {
   return (
     <div className="section-three bg-[#283C63]">
       <div className="container py-[50px] md:py-[100px]">
-        <div className="grid md:grid-cols-2 gap-5 md:gap-[60px]">
+        <div className="grid md:grid-cols-2 gap-5 lg:gap-[60px]">
           <div>
             <Image src={gridImg7} alt="Picture" className="w-full h-full rounded-[20px]"/>
           </div>
           <div>
             <h2 className="section-title !text-white">How It Works?</h2>
-            <p className="mt-[10px] md:mt-5 mb-[18px] md:mb-10 text-zinc-300 text-sm md:text-base md:leading-7">Connect with culturally attuned therapists on our platform. Schedule sessions, receive personalized support, and embark on a journey of healing and growth tailored to the African American experience. Join us today.</p>
+            <p className="mt-[10px] md:mt-5 mb-[18px] md:mb-10 text-zinc-300 text-sm md:text-base lg:leading-7">Connect with culturally attuned therapists on our platform. Schedule sessions, receive personalized support, and embark on a journey of healing and growth tailored to the African American experience. Join us today.</p>
            <div className="grid gap-y-[30px]">
            <HomeIconCard
         icon={<BriefIcon />}
@@ -147,7 +150,7 @@ return (
     <div className="md:w-[45%] md:pr-[20px]"> 
       <Image src={gridImg6} alt="Picture" className="rounded-[20px]"/>
     </div>
-    <div className="md:w-[55%] px-[15px] md:pl-[50px] py-5 md:pr-[60px]">
+    <div className="md:w-[55%] px-[15px] lg:pl-[50px] py-5 lg:pr-[60px]">
       <p className="text-gray-500 text-sm md:text-base font-normal md:leading-7">Therapy is a transformative journey that brings forth a wealth of benefits across all aspects of life. Whether you&apos;re an individual seeking personal growth, a couple navigating challenges, or a family fostering strong bonds, therapy offers a pathway to positive change. Through therapy, you can experience emotional healing, find resolution to conflicts, develop effective coping strategies, and gain profound insights into your thoughts and behaviors. Moreover, therapy fosters improved communication skills, which are crucial for navigating relationships successfully. With culturally sensitive therapy, like what we offer at the Black Therapy Network, you also gain the advantage of exploring your unique experiences within a supportive and understanding environment.</p>
     </div>
       <div className="custom-size absolute right-[10px] md:right-[-60px] top-[-30px] md:top-[-60px] rotate-[-10deg] ">

@@ -58,11 +58,11 @@ const Header = () => {
       <div className='nav-container w-full max-w-[1260px] mx-auto flex items-center justify-between pt-5 px-[15px]  md:px-[25px]'>
         <div className="nav_logo">
           <Link href="/" className="nav-logo-link">
-            <LogoIcon />
+            <LogoIcon /> 
           </Link>
         </div>
         <ul className={`nav-menu ${isToggleOpen ? 'open' : ''}`}>
-          <button className="close-btn md:hidden" onClick={handleToggleClose}>
+          <button className="close-btn lg:hidden" onClick={handleToggleClose}>
             <ToggleClose />
           </button>
           <li>
@@ -78,10 +78,16 @@ const Header = () => {
             <Link href="/faq" className="nav-menu-list">FAQ</Link>
           </li>
           <li>
-            <Link href="/contact" className="nav-menu-list inline-block ext-sm text-white bg-slate-700 rounded-[30px] !px-[30px] !py-[13px]">Contact</Link>
+            <Link href="/contact" className="nav-menu-list lg:!inline-block lg:text-sm lg:text-white lg:bg-[#283C63] rounded-[30px] lg:!px-[30px] !py-[13px]">Contact</Link>
           </li>
+          <li className="md:hidden mt-4">
+          <Link href="/login" className="text-white text-sm bg-[#283C63] rounded-[30px] px-[30px] py-[13px]">
+             Login/Sign Up
+            </Link>
+        </li>
         </ul>
-        <p className="menuToggleBtn md:hidden" onClick={handleToggleOpen}>
+
+        <p className="menuToggleBtn lg:hidden" onClick={handleToggleOpen}>
           <ToggleIcon />
         </p>
       </div>
