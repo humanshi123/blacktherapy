@@ -51,13 +51,13 @@ const Page = () => {
           />
           <InputField
             type="password"
-            value="gf"
+            value=""
             placeholder="Password"
            // onChange={(e) => setEmail(e.target.value)}
           />
             <InputField
             type="password"
-            value="dgf"
+            value=""
             placeholder="Password"
            // onChange={(e) => setEmail(e.target.value)}
           />

@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const hideFooterRoutes = ['/login', '/forgotpassword', '/resetpassword'];
+  const hideFooterRoutes = ['/login', '/forgotpassword', '/resetpassword', '/signup'];
 
   return (
     <html lang="en">

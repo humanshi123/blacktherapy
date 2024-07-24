@@ -15,6 +15,7 @@ const Page = () => {
           <div className="video lg:pr-[125px] overflow-hidden">
          <div className="scrolling md:h-[600px] h-[300px] lg:h-[800px]">
          <Image src={animate} alt="amnimate"  />
+         <Image src={animate} alt="amnimate"  />
          </div>
           </div>
         <div>

@@ -22,13 +22,27 @@ const Page: React.FC = () => {
     <div>
     <p className="mb-5 md:mb-10 text-center"><span className="inline-block "> <LogoIcon /> </span></p>
     <div className="login rounded-[20px] bg-white">
-      <h1 className="bg-[#283C63] text-center py-5 md:py-[32px] text-white text-lg md:text-3xl rounded-t-[20px]">Sign in To Your Account</h1>
+      <h1 className="bg-[#283C63] text-center py-5 md:py-[32px] text-white text-lg md:text-3xl rounded-t-[20px]">New Provider Application</h1>
       <div className="md:px-[35px] px-[15px] md:pt-10 md:pb-[27px] py-5">
       <InputField
+        type="text"
+        value=""
+        placeholder="First Name"
+      />
+       <InputField
+        type="text"
+        value=""
+        placeholder="Last Name"
+      />
+       <InputField
+        type="number"
+        value=""
+        placeholder="Mobile Number"
+      />
+       <InputField
         type="email"
         value=""
         placeholder="Email Address"
-        // onChange={(e) => setEmail(e.target.value)}
       />
       <InputField
         type="password"
@@ -36,9 +50,7 @@ const Page: React.FC = () => {
         placeholder="Password"
        // onChange={(e) => setEmail(e.target.value)}
       />
-
-      <Link href="/forgotpassword" className="text-[#686c78] text-sm text-right inline-block w-full mb-4 md:mb-[30px]">Forgot Password</Link>
-      <button className="button w-full">Submit <ButtonSvg /></button>
+      <Link href="/accountcreated" className="button w-full">Submit <ButtonSvg /></Link>
       </div>
     </div>
       </div>

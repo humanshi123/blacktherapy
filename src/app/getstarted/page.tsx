@@ -20,7 +20,7 @@ const Page = () => {
                         </div>
                     </div>
                     <div>
-                        <Link href="#" ><GettingStart /></Link>
+                        <Link href="/signup" ><GettingStart /></Link>
                     </div>
                 </div>
                 <div className='flex items-center justify-between bg-[#FFBBCD] rounded-[20px] p-5 my-5'>
@@ -32,7 +32,7 @@ const Page = () => {
                         </div>
                     </div>
                     <div>
-                        <Link href="#" ><GettingStart /></Link>
+                        <Link href="/signup" ><GettingStart /></Link>
                     </div>
                 </div>
                 <div className='flex items-center justify-between bg-[#FFD899] rounded-[20px] p-5 '>
@@ -44,7 +44,7 @@ const Page = () => {
                         </div>
                     </div>
                     <div>
-                        <Link href="#" ><GettingStart /></Link>
+                        <Link href="/signup" ><GettingStart /></Link>
                     </div>
                 </div>
             </div>
