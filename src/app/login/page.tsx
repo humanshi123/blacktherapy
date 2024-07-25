@@ -38,7 +38,7 @@ const Page: React.FC = () => {
       />
 
       <Link href="/forgotpassword" className="text-[#686c78] text-sm text-right inline-block w-full mb-4 md:mb-[30px]">Forgot Password</Link>
-      <button className="button w-full">Submit <ButtonSvg /></button>
+      <Link href="/onboarding" className="button w-full">Submit <ButtonSvg /></Link>  
       </div>
     </div>
       </div>

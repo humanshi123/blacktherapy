@@ -194,8 +194,12 @@ text-transform: capitalize;
   -webkit-animation: scrollUp 8s linear infinite normal;
   animation: scrollUp 8s linear infinite normal;
 }
-
- 
+input:focus-visible {
+  outline: none;
+}
+button:disabled {
+  background: #DBDBDB !important;
+}
  @-webkit-keyframes scrollUp {
   from {
     -webkit-transform: translateY(0);
