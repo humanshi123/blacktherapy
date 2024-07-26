@@ -262,9 +262,7 @@ button:disabled {
   color: #283C63;
 }
 
-.questions:last-child .after-line::after {
-  content: none;
-}
+
 .background-consent .after-line {
   display: none;
 }
@@ -277,6 +275,9 @@ button:disabled {
   .card-wrapper:hover .text-button {
     bottom: 19px;
     transition: 0.7s;
+  }
+  .questions:nth-last-child(2) .after-line::after {
+    content: none !important;
   }
   .after-line::after {
     position: absolute;
