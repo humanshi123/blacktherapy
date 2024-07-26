@@ -156,10 +156,11 @@ const MyProfileStep: React.FC<MyProfileStepProps> = ({
         }
         {activeTab === "Preferred Communication" && renderQuestions(preferredCommunicationQuestions, "preferred")}
         {activeTab === "Availability" && renderQuestions(availabilityQuestions, "availability")}
-      </div>
-      <div className="flex justify-end mt-[50px]">
+        <div className="flex justify-end mt-[50px]">
         <button onClick={handleContinue} className="button">Continue <ButtonSvg /></button>
         </div>
+      </div>
+
     </div>
   );
 };
