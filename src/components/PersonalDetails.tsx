@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import QuestionComponent from "./QuestionComponent";
+import { ButtonSvg } from "@/utils/svgicons";
 
 const personalDetailsQuestions = [
   {
@@ -55,12 +56,14 @@ interface PersonalDetailsProps {
   formData: { [key: string]: string };
   setFormData: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
   setIsValid: (isValid: boolean) => void;
+  nextStep: () => void;
 }
 
 const PersonalDetails: React.FC<PersonalDetailsProps> = ({
   formData,
   setFormData,
   setIsValid,
+  nextStep
 }) => {
   useEffect(() => {
     validateStep();
@@ -72,14 +75,24 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({
     );
     setIsValid(isValid);
   };
-
+  const handleContinue = () => {
+    // Additional validation if needed
+    nextStep();
+  };
   return (
     <div className="form-main">
       <h2 className="section-title mb-7 md:m-0 text-center md:absolute top-[45px] left-[50%] md:translate-x-[-50%]">
       Personal Details
       </h2>
-
       <div className="bg-white rounded-[20px] p-5 md:p-[50px]">
+      {/* <div className="custom">
+      <input
+        type="file"
+        accept="image/*"
+        className="file-input"
+      />
+       </div> */}
+
         {personalDetailsQuestions.map((q, index) => (
           <QuestionComponent
             key={index}
@@ -93,6 +106,10 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({
             setFormData={setFormData}
           />
         ))}
+        
+        <div className="flex justify-end mt-[50px]">
+        <button onClick={handleContinue} className="button">Continue <ButtonSvg /></button>
+        </div>
       </div>
     </div>
   );

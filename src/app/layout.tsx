@@ -19,11 +19,6 @@ const anticDidone = localFont({
   variable: '--font-antic',
 })
 
-// export const metadata: Metadata = {
-//   title: "The Black Therapy Network",
-//   description: "",
-// };
-
 export default function RootLayout({
   children,
 }: Readonly<{

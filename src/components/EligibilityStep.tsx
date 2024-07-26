@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import QuestionComponent from "./QuestionComponent";
+import { ButtonSvg } from "@/utils/svgicons";
 
 const questions = [
   {
@@ -46,12 +47,14 @@ interface EligibilityStepProps {
   formData: { [key: string]: string };
   setFormData: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
   setIsValid: (isValid: boolean) => void;
+  nextStep: () => void;
 }
 
 const EligibilityStep: React.FC<EligibilityStepProps> = ({
   formData,
   setFormData,
   setIsValid,
+  nextStep
 }) => {
   useEffect(() => {
     validateStep();
@@ -63,7 +66,10 @@ const EligibilityStep: React.FC<EligibilityStepProps> = ({
     );
     setIsValid(isValid);
   };
-
+  const handleContinue = () => {
+    // Additional validation if needed
+    nextStep();
+  };
   return (
     <div className="form-main">
       <h2 className="section-title mb-7 md:m-0 text-center md:absolute top-[45px] left-[50%] md:translate-x-[-50%]">
@@ -83,6 +89,10 @@ const EligibilityStep: React.FC<EligibilityStepProps> = ({
             setFormData={setFormData}
           />
         ))}
+
+        <div className="flex justify-end mt-[50px]">
+        <button onClick={handleContinue} className="button">Continue <ButtonSvg /></button>
+        </div>
       </div>
     </div>
   );

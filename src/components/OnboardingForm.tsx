@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import EligibilityStep from './EligibilityStep';
 import PersonalDetails from './PersonalDetails';
 import InsuranceStep from './InsuranceStep';
+import CertificationStep from './CertificationStep';
+import MyProfileStep from './MyProfileStep';
+import BackgroundStep from './BackgroundStep';
 
 const OnboardingForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -16,11 +19,17 @@ const OnboardingForm = () => {
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <EligibilityStep formData={formData} setFormData={setFormData} setIsValid={setIsValid} />;
+        return <EligibilityStep formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>;
       case 2:
-        return <InsuranceStep formData={formData} setFormData={setFormData} setIsValid={setIsValid} />;
+        return <InsuranceStep formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>;
       case 3:
-        return <PersonalDetails formData={formData} setFormData={setFormData} setIsValid={setIsValid} />;
+        return <PersonalDetails formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>;
+      case 4: 
+        return <CertificationStep  formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>
+      case 5:
+        return <MyProfileStep formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>
+        case 6:
+          return <BackgroundStep formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>
       default:
         return null;
     }
@@ -51,8 +60,8 @@ const OnboardingForm = () => {
     <div>
       <div className="navigation flex items-center justify-between mb-5 md:mb-8">
         {currentStep >= 1 && <button disabled={currentStep ===1} className='button' onClick={prevStep} style={buttonstyle}>&lt;&lt;Previous</button>}
-        {currentStep < 3 && <button className='button' onClick={nextStep} style={buttonstyle}>Next&gt;&gt;</button>}
-        {currentStep === 3 && <button onClick={() => alert('Form Submitted!')} >Submit</button>}
+        {currentStep < 6 && <button className='button' onClick={nextStep} style={buttonstyle}>Next&gt;&gt;</button>}
+        {/* {currentStep === 6 && <button onClick={() => alert('Form Submitted!')} style={buttonstyle}>Submit</button>} */}
       </div>
       {/* <div className="steps">
         <span>{`Step ${currentStep}/3`}</span>
