@@ -96,6 +96,15 @@ const OutOfPocketForm: React.FC<OutOfPocketFormProps> = ({ onBack }) => {
     } else if (currentStep === 1) {
       startIndex = 2;
       endIndex = 4; // Show next 2 questions
+    } else if (currentStep === 2) {
+      startIndex = 4;
+      endIndex = 6;
+    } else if (currentStep === 3) {
+      startIndex = 6;
+      endIndex = 8;
+    } else if (currentStep === 4) {
+      startIndex = 8;
+      endIndex = outOfPocketQuestions.length;
     }
 
     return outOfPocketQuestions.slice(startIndex, endIndex).map((question, index) => (
@@ -149,14 +158,14 @@ const OutOfPocketForm: React.FC<OutOfPocketFormProps> = ({ onBack }) => {
   };
 
   return (
-    <div>
+    <div className="max-w-[800px] mx-auto ">
       <h2 className="text-xl font-bold mb-4">Out-of-Pocket Details</h2>
       {renderQuestions()}
 
       <div className="flex justify-between">
-        <button onClick={handleBack} className="btn btn-secondary">Back</button>
+        <button onClick={handleBack} className="button">Back</button>
         {currentStep < Math.ceil(outOfPocketQuestions.length / 2) && (
-          <button onClick={handleContinue} className="btn btn-primary">Continue</button>
+          <button onClick={handleContinue} className="button">Continue</button>
         )}
       </div>
     </div>

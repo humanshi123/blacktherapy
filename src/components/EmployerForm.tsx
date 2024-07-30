@@ -103,7 +103,10 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
       endIndex = 6; // Show next 2 questions
     } else if (currentStep === 3) {
       startIndex = 6;
-      endIndex = 8; // Show remaining questions
+      endIndex = 8;
+    } else if (currentStep === 4) {
+      startIndex = 8;
+      endIndex = employerQuestions.length; // Show remaining questions
     }
 
     return employerQuestions.slice(startIndex, endIndex).map((question, index) => (
@@ -179,14 +182,14 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
   };
 
   return (
-    <div>
+    <div className="max-w-[800px] mx-auto ">
       <h2 className="text-xl font-bold mb-4">Enter organization Detail</h2>
       {renderQuestions()}
 
       <div className="flex justify-between">
-        <button onClick={handleBack} className="btn btn-secondary">Back</button>
+        <button onClick={handleBack} className="button">Back</button>
         {currentStep < Math.ceil(employerQuestions.length / 3) && (
-          <button onClick={handleContinue} className="btn btn-primary">Continue</button>
+          <button onClick={handleContinue} className="button">Continue</button>
         )}
       </div>
     </div>

@@ -128,12 +128,19 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
     } else if (currentStep === 3) {
       startIndex = 6;
       endIndex = 8;
+    } else if (currentStep === 4) {
+      startIndex = 8;
+      endIndex = 10;
+    } else if (currentStep === 5) {
+      startIndex = 10;
+      endIndex = insuranceQuestions.length;
     }
+
 
     return insuranceQuestions
       .slice(startIndex, endIndex)
       .map((question, index) => (
-        <div key={index + startIndex} className="mb-4">
+        <div key={index + startIndex} className="grid mb-4">
           <label>{question.question}</label>
           {question.type === "textarea" ? (
             <textarea
@@ -193,16 +200,16 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
   };
 
   return (
-    <div>
+    <div className="max-w-[800px] mx-auto ">
       <h2 className="text-xl font-bold mb-4">Insurance Details</h2>
       {renderQuestions()}
 
       <div className="flex justify-between">
-        <button onClick={handleBack} className="btn btn-secondary">
+        <button onClick={handleBack} className="button">
           Back
         </button>
         {currentStep < Math.ceil(insuranceQuestions.length / 2) && (
-          <button onClick={handleContinue} className="btn btn-primary">
+          <button onClick={handleContinue} className="button">
             Continue
           </button>
         )}

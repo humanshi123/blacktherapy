@@ -15,7 +15,7 @@ const InputField: FC<InputFieldProps> = ({ type, value, placeholder }) => {
       type={type}
       value={value}
       placeholder={placeholder}
-      readOnly
+     
       // onChange={onChange}
     />
     </div>
