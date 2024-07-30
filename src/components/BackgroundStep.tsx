@@ -10,7 +10,7 @@ const BgQuestions = [
   },
 
 ];
-
+ 
 interface CertificationStepProps {
   formData: { [key: string]: string };
   setFormData: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
@@ -58,7 +58,7 @@ const BackgroundStep: React.FC<CertificationStepProps> = ({
           />
         ))}
          <div className="flex justify-end mt-[50px]">
-        <button onClick={() => alert('Form Submitted!')}className="button">Continue <ButtonSvg /></button>
+        <button onClick={handleContinue}className="button">Continue <ButtonSvg /></button>
         </div>
       </div>
     </div>

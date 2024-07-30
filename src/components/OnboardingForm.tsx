@@ -6,6 +6,7 @@ import InsuranceStep from './InsuranceStep';
 import CertificationStep from './CertificationStep';
 import MyProfileStep from './MyProfileStep';
 import BackgroundStep from './BackgroundStep';
+import ApplicationCompleted from './ApplicationCompleted';
 
 const OnboardingForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -28,9 +29,11 @@ const OnboardingForm = () => {
         return <CertificationStep  formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>
       case 5:
         return <MyProfileStep formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>
-        case 6:
-          return <BackgroundStep formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>
-      default:
+      case 6:
+        return <BackgroundStep formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>
+      case 7:
+        return <ApplicationCompleted />
+          default:
         return null;
     }
   };

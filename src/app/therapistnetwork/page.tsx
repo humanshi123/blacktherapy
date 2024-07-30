@@ -1,5 +1,5 @@
 "use client";
-import { LineOne, LineTwo, StepOne, StepSecond, StepThree} from '@/utils/svgicons';
+import { ButtonSvg, LineOne, LineTwo, StepOne, StepSecond, StepThree} from '@/utils/svgicons';
 import BannerSection from '@/components/BannerSection';
 import React, { useState } from 'react';
 import banner from "../../assets/images/banner-img1.png"
@@ -9,6 +9,7 @@ import RequirementsImage from '@/assets/images/requirements.jpg'
 import ListImage from '@/assets/images/li-list.svg'
 import Image from 'next/image';
 import { DropDown, FaqTitle } from '@/utils/svgicons';
+import Link from 'next/link';
 
 
 
@@ -133,7 +134,10 @@ return (
             <div>
                 <div className='auto w-full max-w-[480px] ml-auto mr-auto'>
                      <Image src={RequirementsImage} alt='RequirementsImage' className='rounded-[20px]' />
-                    <p className='bg-[#F4FFFE] rounded-[20px] text-[#686C78] leading-[28px] p-[15px] mt-[24px] lg:p-[36px]'>The Black Therapy Network only work with clients in the state(s) where they are licensed and allowed to practice independently</p>
+                   <div className='p-6 mt-[24px] bg-[#F4FFFE] rounded-[20px]'>
+                   <p className=' text-[#686C78] leading-[28px] mb-5'>The Black Therapy Network only work with clients in the state(s) where they are licensed and allowed to practice independently</p>
+                   <Link href="/signup" className='button'>Apply Now <ButtonSvg /></Link>
+                   </div>
                 </div>
             </div>
          </div>
@@ -197,7 +201,7 @@ const FaqSection: React.FC = () => {
         <h2 className='section-title mb-3 md:mb-5'>Frequently Asked Questions</h2>
       </div>
       <div className="">
-        <div className="md:pr-[55px]">
+        <div className="">
           {faqData.map((dropdown, index) => (
             <div className='md:mb-[10px] mb-3' key={index}>
               <h2

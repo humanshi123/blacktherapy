@@ -46,7 +46,7 @@ const CertificationStepQuestions = [
     type: "text",
     placeholder: "Zip Code",
   },
-  {
+ {
     question: "Do you have a supervisor with a valid supervision agreement in place?",
     type: "radio",
     options: ["Yes", "No"],
