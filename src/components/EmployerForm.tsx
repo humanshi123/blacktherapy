@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PersonalInfoForm from "./PersonalInfoForm";
 
 interface EmployerFormProps {
   onBack: () => void;
@@ -89,25 +90,9 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
   };
 
   const renderQuestions = () => {
-    let startIndex = 0;
-    let endIndex = 0;
-
-    if (currentStep === 0) {
-      startIndex = 0;
-      endIndex = 2; // Show first 2 questions
-    } else if (currentStep === 1) {
-      startIndex = 2;
-      endIndex = 4; // Show next 2 questions
-    } else if (currentStep === 2) {
-      startIndex = 4;
-      endIndex = 6; // Show next 2 questions
-    } else if (currentStep === 3) {
-      startIndex = 6;
-      endIndex = 8;
-    } else if (currentStep === 4) {
-      startIndex = 8;
-      endIndex = employerQuestions.length; // Show remaining questions
-    }
+    const questionsPerStep = 2;
+    const startIndex = currentStep * questionsPerStep;
+    const endIndex = startIndex + questionsPerStep;
 
     return employerQuestions.slice(startIndex, endIndex).map((question, index) => (
       <div key={index + startIndex} className="mb-4">
@@ -182,13 +167,12 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="max-w-[800px] mx-auto ">
-      <h2 className="text-xl font-bold mb-4">Enter organization Detail</h2>
-      {renderQuestions()}
-
+    <div className="max-w-[800px] mx-auto">
+      <h2 className="text-xl font-bold mb-4">Enter Organization Details</h2>
+      {currentStep < Math.ceil(employerQuestions.length / 2) ? renderQuestions() : <PersonalInfoForm />}
       <div className="flex justify-between">
         <button onClick={handleBack} className="button">Back</button>
-        {currentStep < Math.ceil(employerQuestions.length / 3) && (
+        {currentStep < Math.ceil(employerQuestions.length / 2) && (
           <button onClick={handleContinue} className="button">Continue</button>
         )}
       </div>

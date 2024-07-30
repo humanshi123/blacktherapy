@@ -17,8 +17,8 @@ const Page = () => {
   const handleClosePopup = () => {
     setShowPopup(false);
   };
-//   const [otp, setOtp] = useState('');
-//   const [newPassword, setNewPassword] = useState('');
+  const [otp, setOtp] = useState('');
+   const [newPassword, setNewPassword] = useState('');
 //   const router = useRouter();
 
 // const handleSubmit = () => {
@@ -45,21 +45,21 @@ const Page = () => {
           <div className="md:px-[35px] px-[15px] md:pt-10 md:pb-[27px] py-5">
           <InputField
             type="text"
-            value=""
+            value={otp}
             placeholder="OTP"
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setOtp(e.target.value)}
           />
           <InputField
             type="password"
-            value=""
+            value={newPassword}
             placeholder="Password"
-           // onChange={(e) => setEmail(e.target.value)}
+           onChange={(e) => setNewPassword(e.target.value)}
           />
             <InputField
             type="password"
-            value=""
+            value={newPassword}
             placeholder="Password"
-           // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setNewPassword(e.target.value)}
           />
     
           <button className="text-[#686c78] text-sm text-right inline-block w-full mb-4 md:mb-[30px]">Resend OTP </button>

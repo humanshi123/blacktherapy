@@ -8,6 +8,11 @@ import Image from "next/image";
 import animate from "../../assets/images/loginslide.png"
 
 const Page: React.FC = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return(
     <>
@@ -26,29 +31,33 @@ const Page: React.FC = () => {
       <div className="md:px-[35px] px-[15px] md:pt-10 md:pb-[27px] py-5">
       <InputField
         type="text"
-        value=""
+        value={firstName}
         placeholder="First Name"
+        onChange={(e) => setFirstName(e.target.value)}
       />
        <InputField
         type="text"
-        value=""
+        value={lastName}
         placeholder="Last Name"
+        onChange={(e) => setLastName(e.target.value)}
       />
        <InputField
         type="number"
-        value=""
+        value={phoneNumber}
         placeholder="Mobile Number"
+        onChange={(e) => setPhoneNumber(e.target.value)}
       />
        <InputField
         type="email"
-        value=""
+        value={email}
         placeholder="Email Address"
+        onChange={(e) => setEmail(e.target.value)}
       />
       <InputField
         type="password"
-        value=""
+        value={password}
         placeholder="Password"
-       // onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <Link href="/accountcreated" className="button w-full">Submit <ButtonSvg /></Link>
       </div>

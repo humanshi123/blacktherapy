@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PersonalInfoForm from "./PersonalInfoForm";
 
 interface OutOfPocketFormProps {
   onBack: () => void;
@@ -98,12 +99,9 @@ const OutOfPocketForm: React.FC<OutOfPocketFormProps> = ({ onBack }) => {
       endIndex = 4; // Show next 2 questions
     } else if (currentStep === 2) {
       startIndex = 4;
-      endIndex = 6;
+      endIndex = 6; // Show next 2 questions
     } else if (currentStep === 3) {
       startIndex = 6;
-      endIndex = 8;
-    } else if (currentStep === 4) {
-      startIndex = 8;
       endIndex = outOfPocketQuestions.length;
     }
 
@@ -160,8 +158,7 @@ const OutOfPocketForm: React.FC<OutOfPocketFormProps> = ({ onBack }) => {
   return (
     <div className="max-w-[800px] mx-auto ">
       <h2 className="text-xl font-bold mb-4">Out-of-Pocket Details</h2>
-      {renderQuestions()}
-
+      {currentStep < Math.ceil(outOfPocketQuestions.length / 2) ? renderQuestions() : <PersonalInfoForm />}
       <div className="flex justify-between">
         <button onClick={handleBack} className="button">Back</button>
         {currentStep < Math.ceil(outOfPocketQuestions.length / 2) && (

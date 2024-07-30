@@ -7,7 +7,9 @@ import InputField from "@/components/InputField";
 import Image from "next/image";
 import animate from "../../assets/images/loginslide.png";
 
-const Page = () => {
+const Page: React.FC = () => {
+const [password, setPassword] = useState("");
+
     return (
         <>
         <div className="container">
@@ -25,9 +27,9 @@ const Page = () => {
           <div className="md:px-[35px] px-[15px] md:pt-10 md:pb-[27px] py-5">
           <InputField
             type="email"
-            value=""
+            value={password}
             placeholder="Email Address"
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         <Link href="/resetpassword" className="button w-full mt-[30px]">Continue <ButtonSvg /></Link>
        

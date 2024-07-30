@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PersonalInfoForm from "./PersonalInfoForm";
 
 interface InsuranceFormProps {
   onBack: () => void;
@@ -136,7 +137,6 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
       endIndex = insuranceQuestions.length;
     }
 
-
     return insuranceQuestions
       .slice(startIndex, endIndex)
       .map((question, index) => (
@@ -202,8 +202,7 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
   return (
     <div className="max-w-[800px] mx-auto ">
       <h2 className="text-xl font-bold mb-4">Insurance Details</h2>
-      {renderQuestions()}
-
+      {currentStep < Math.ceil(insuranceQuestions.length / 2) ? renderQuestions() : <PersonalInfoForm />}
       <div className="flex justify-between">
         <button onClick={handleBack} className="button">
           Back

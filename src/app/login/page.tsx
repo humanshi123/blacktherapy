@@ -8,6 +8,10 @@ import Image from "next/image";
 import animate from "../../assets/images/loginslide.png"
 
 const Page: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
 
   return(
     <>
@@ -26,15 +30,15 @@ const Page: React.FC = () => {
       <div className="md:px-[35px] px-[15px] md:pt-10 md:pb-[27px] py-5">
       <InputField
         type="email"
-        value=""
+        value={email}
         placeholder="Email Address"
-        // onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <InputField
         type="password"
-        value=""
+        value={password}
         placeholder="Password"
-       // onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       />
 
       <Link href="/forgotpassword" className="text-[#686c78] text-sm text-right inline-block w-full mb-4 md:mb-[30px]">Forgot Password</Link>
