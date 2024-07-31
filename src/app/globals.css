@@ -194,7 +194,7 @@ text-transform: capitalize;
   -webkit-animation: scrollUp 8s linear infinite normal;
   animation: scrollUp 8s linear infinite normal;
 }
-input:focus-visible {
+input:focus-visible, textarea:focus-visible, select:focus-visible {
   outline: none;
 }
 button:disabled {
@@ -270,6 +270,14 @@ button:disabled {
   display: flex;
   justify-content: center;
 }
+.step-form-radio input:checked ~ span {
+  color: #fff;
+  background: #283C63;
+}
+.step-form-radio.custom-radio span::after {
+  content: none;
+}
+
 
 @media (min-width: 768px) {
   .card-wrapper:hover .text-button {

@@ -83,7 +83,7 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
             name={indexString}
             value={formData[indexString] || ''}
             onChange={handleChange}
-            className="w-full px-[18px] h-[45px] text-sm py-2 border border-[#dbe0eb] rounded-[20px] focus:outline-none focus:ring-1 focus:border-[#283C63]"
+            className="w-full text-[#686C78] px-[18px] h-[45px] text-sm py-2 border border-[#dbe0eb] rounded-[20px] focus:outline-none focus:ring-1 focus:border-[#283C63]"
           >
             <option value="" disabled>{placeholder}</option>
             {options.map(option => (
@@ -113,7 +113,7 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
             value={formData[indexString] || ''}
             onChange={handleChange}
             placeholder={placeholder}
-            className="w-full px-[18px] h-[45px] text-sm py-2 border border-[#dbe0eb] rounded-[20px] focus:outline-none focus:ring-1 focus:border-[#283C63]"
+            className="text-[#686C78] w-full px-[18px] h-[45px] text-sm py-2 border border-[#dbe0eb] rounded-[20px] focus:outline-none focus:ring-1 focus:border-[#283C63]"
           />
         )}
       </div>

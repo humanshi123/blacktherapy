@@ -45,7 +45,7 @@ const Footer: React.FC = () =>{
 
   return (
     <div className="main-footer">
-      <div className="relative z-[2]">
+      <div className="relative z-[1]">
         <div className="container ">
            <div
              className="grid md:grid-cols-2 items-center py-[40px] md:py-[50px] px-[15px] md:px-[100px] rounded-[20px] bg-[#fff] shadow-xs"

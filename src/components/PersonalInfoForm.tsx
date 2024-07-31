@@ -43,8 +43,9 @@ const PersonalInfoForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit} className="relative mb-4">
+      <h2 className='section-title text-center mb-4'>Fill Personal Information</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[10px] md:gap-4">
         <InputField name="firstName" label="First Name" value={formData.firstName} onChange={handleChange} />
         <InputField name="lastName" label="Last Name" value={formData.lastName} onChange={handleChange} />
         <InputField type="date" name="dateOfBirth" label="Date of Birth" value={formData.dateOfBirth} onChange={handleChange} />
@@ -58,7 +59,7 @@ const PersonalInfoForm: React.FC = () => {
         <InputField name="addressLine1" label="Address Line 1" value={formData.addressLine1} onChange={handleChange} />
         <InputField name="addressLine2" label="Address Line 2" value={formData.addressLine2} onChange={handleChange} />
       </div>
-      <button type="submit" className="mt-4 button">Submit</button>
+      <button type="submit" className=" button absolute right-0 bottom-[-56px] md:bottom-[-70px] ">Finish</button>
     </form>
   );
 };
@@ -72,14 +73,14 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = ({ name, label, value, type = 'text', onChange }) => (
-  <div>
-    <label className="block text-sm font-medium text-gray-700" htmlFor={name}>{label}</label>
+  <div className='grid'>
+    <label className="text-[15px] md:text-lg text-[#283C63] mb-2" htmlFor={name}>{label}</label>
     <input
       type={type}
       name={name}
       value={value}
       onChange={onChange}
-      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+      className="text-sm md:text-base text-[#686C78] py-[10px] px-4 border border-[#dbe0eb] rounded-[20px]"
     />
   </div>
 );
@@ -93,13 +94,13 @@ interface SelectFieldProps {
 }
 
 const SelectField: React.FC<SelectFieldProps> = ({ name, label, value, onChange, options }) => (
-  <div>
-    <label className="block text-sm font-medium text-gray-700" htmlFor={name}>{label}</label>
+  <div className='grid'>
+    <label className="text-[15px] md:text-lg text-[#283C63] mb-2" htmlFor={name}>{label}</label>
     <select
       name={name}
       value={value}
       onChange={onChange}
-      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+      className="text-sm md:text-base text-[#686C78] border border-[#dbe0eb] rounded-[20px] px-4 py-[10px]"
     >
       {options.map(option => (
         <option key={option} value={option}>{option}</option>

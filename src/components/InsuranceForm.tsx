@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PersonalInfoForm from "./PersonalInfoForm";
+import IntroSection from "./IntroSection";
 
 interface InsuranceFormProps {
   onBack: () => void;
@@ -31,7 +32,7 @@ const insuranceQuestions = [
     type: "date",
     placeholder: "Enter any additional notes",
   },
-  //mainform-----------
+  // mainform-----------
   {
     question: "To begin, tell us why you're looking for help today.",
     type: "radio",
@@ -56,11 +57,11 @@ const insuranceQuestions = [
     options: ["Excellent", "Good", "Fair", "Poor"],
   },
   {
-    question: "How did you here about us?",
+    question: "How did you hear about us?",
     type: "radio",
     options: [
       "My doctor",
-      "Serach Engine/Online",
+      "Search Engine/Online",
       "Insurance provider",
       "Previous therapist",
       "Court",
@@ -79,7 +80,7 @@ const insuranceQuestions = [
       "Transgender male",
       "Gender queer",
       "Gender variant",
-      "other",
+      "Other",
       "Non Binary",
     ],
   },
@@ -88,13 +89,13 @@ const insuranceQuestions = [
     type: "textarea",
     placeholder: "",
   },
-
   // Add more questions as needed
 ];
 
 const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [isValid, setIsValid] = useState(false);
 
   const handleAnswerChange = (answer: string, index: number) => {
     const updatedAnswers = [...answers];
@@ -102,19 +103,7 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
     setAnswers(updatedAnswers);
   };
 
-  const handleContinue = () => {
-    setCurrentStep(currentStep + 1);
-  };
-
-  const handleBack = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-    } else {
-      onBack();
-    }
-  };
-
-  const renderQuestions = () => {
+  const validateCurrentStep = () => {
     let startIndex = 0;
     let endIndex = 0;
     if (currentStep === 0) {
@@ -128,24 +117,83 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
       endIndex = 6;
     } else if (currentStep === 3) {
       startIndex = 6;
-      endIndex = 8;
+      endIndex = 7;
     } else if (currentStep === 4) {
-      startIndex = 8;
-      endIndex = 10;
+      startIndex = 7;
+      endIndex = 8;
     } else if (currentStep === 5) {
-      startIndex = 10;
+      startIndex = 8;
+      endIndex = 9;
+    } else if (currentStep === 6) {
+      startIndex = 9;
       endIndex = insuranceQuestions.length;
     }
+  
+
+    for (let i = startIndex; i < endIndex; i++) {
+      if (!answers[i]) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const handleContinue = () => {
+    if (validateCurrentStep()) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      alert("Please fill in all required fields before continuing.");
+    }
+  };
+
+  const handleNext =() => {
+    setCurrentStep(currentStep + 1);
+  };
+  const handleBack = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    } else {
+      onBack();
+    }
+  };
+
+  const renderQuestions = () => {
+    let startIndex = 0;
+    let endIndex = 0;
+
+    if (currentStep === 0) {
+      startIndex = 0;
+      endIndex = 1;
+    } else if (currentStep === 1) {
+      startIndex = 1;
+      endIndex = 5;
+    } else if (currentStep === 2) {
+      startIndex = 5;
+      endIndex = 6;
+    } else if (currentStep === 3) {
+      startIndex = 6;
+      endIndex = 7;
+    } else if (currentStep === 4) {
+      startIndex = 7;
+      endIndex = 8;
+    } else if (currentStep === 5) {
+      startIndex = 8;
+      endIndex = 9;
+    } else if (currentStep === 6) {
+      startIndex = 9;
+      endIndex = insuranceQuestions.length;
+    }
+
 
     return insuranceQuestions
       .slice(startIndex, endIndex)
       .map((question, index) => (
         <div key={index + startIndex} className="grid mb-4">
-          <label>{question.question}</label>
+          <label className="text-[15px] md:text-lg text-[#283C63] mb-2">{question.question}</label>
           {question.type === "textarea" ? (
             <textarea
               placeholder={question.placeholder}
-              className="input"
+              className="py-[10px] px-4 border border-[#dbe0eb] rounded-[20px]"
               value={answers[index + startIndex] || ""}
               onChange={(e) =>
                 handleAnswerChange(e.target.value, index + startIndex)
@@ -153,7 +201,7 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
             />
           ) : question.type === "select" ? (
             <select
-              className="input"
+              className="text-[#686C78] border border-[#dbe0eb] rounded-[20px] px-4 py-3"
               value={answers[index + startIndex] || ""}
               onChange={(e) =>
                 handleAnswerChange(e.target.value, index + startIndex)
@@ -169,7 +217,7 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
           ) : question.type === "radio" ? (
             <div className="flex flex-col">
               {question.options?.map((option, i) => (
-                <label key={i} className="flex items-center mb-2">
+                <label key={i} className="text-[15px] md:text-lg custom-radio step-form-radio relative flex items-center mb-2">
                   <input
                     type="radio"
                     name={`radio_${index + startIndex}`}
@@ -180,7 +228,9 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
                     }
                     className="mr-2"
                   />
-                  {option}
+                  <span className="text-sm md:text-base w-full text-[#283C63] py-[10px] px-4 border border-[#dbe0eb] rounded-[20px]">
+                    {option}
+                  </span>
                 </label>
               ))}
             </div>
@@ -188,7 +238,7 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
             <input
               type={question.type}
               placeholder={question.placeholder}
-              className="input"
+              className="text-sm md:text-base py-[10px] px-4 border border-[#dbe0eb] rounded-[20px] text-[#686C78]"
               value={answers[index + startIndex] || ""}
               onChange={(e) =>
                 handleAnswerChange(e.target.value, index + startIndex)
@@ -200,9 +250,14 @@ const InsuranceForm: React.FC<InsuranceFormProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="max-w-[800px] mx-auto ">
-      <h2 className="text-xl font-bold mb-4">Insurance Details</h2>
-      {currentStep < Math.ceil(insuranceQuestions.length / 2) ? renderQuestions() : <PersonalInfoForm />}
+    <div className="max-w-[800px] mx-auto rounded-[20px] bg-white p-5 md:p-[40px]">
+      {currentStep < Math.ceil(insuranceQuestions.length / 2) 
+        ? renderQuestions() 
+        : (currentStep === Math.ceil(insuranceQuestions.length / 2) 
+            ? <IntroSection onContinue={handleNext}/> 
+            : <PersonalInfoForm />
+          )
+      }
       <div className="flex justify-between">
         <button onClick={handleBack} className="button">
           Back

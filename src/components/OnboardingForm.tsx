@@ -18,7 +18,7 @@ const OnboardingForm = () => {
   const [isValid, setIsValid] = useState(false);
 
   const renderStep = () => {
-    switch (currentStep) {
+    switch (currentStep) { 
       case 1:
         return <EligibilityStep formData={formData} setFormData={setFormData} setIsValid={setIsValid}  nextStep={nextStep}/>;
       case 2:

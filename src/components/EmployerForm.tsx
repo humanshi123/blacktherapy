@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PersonalInfoForm from "./PersonalInfoForm";
+import IntroSection from "./IntroSection";
 
 interface EmployerFormProps {
   onBack: () => void;
@@ -78,6 +79,13 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
   };
 
   const handleContinue = () => {
+    if (validateStep(currentStep)) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      alert("Please answer all questions before continuing.");
+    }
+  };
+  const handleNext =() => {
     setCurrentStep(currentStep + 1);
   };
 
@@ -89,24 +97,75 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
     }
   };
 
+  const validateStep = (step: number) => {
+    let startIndex = 0;
+    let endIndex = 0;
+
+    if (currentStep === 0) {
+      startIndex = 0;
+      endIndex = 2;
+    } else if (currentStep === 1) {
+      startIndex = 2;
+      endIndex = 3;
+    } else if (currentStep === 2) {
+      startIndex = 3;
+      endIndex = 4;
+    } else if (currentStep === 3) {
+      startIndex = 4;
+      endIndex = 5;
+    } else if (currentStep === 4) {
+      startIndex = 5;
+      endIndex = 6;
+    }  else if (currentStep === 5) {
+      startIndex = 6;
+      endIndex = employerQuestions.length;
+    }
+    for (let i = startIndex; i < endIndex; i++) {
+      if (!answers[i] || answers[i].trim() === "") {
+        return false;
+      }
+    }
+    return true;
+  };
+
+
   const renderQuestions = () => {
-    const questionsPerStep = 2;
-    const startIndex = currentStep * questionsPerStep;
-    const endIndex = startIndex + questionsPerStep;
+    let startIndex = 0;
+    let endIndex = 0;
+
+    if (currentStep === 0) {
+      startIndex = 0;
+      endIndex = 2;
+    } else if (currentStep === 1) {
+      startIndex = 2;
+      endIndex = 3;
+    } else if (currentStep === 2) {
+      startIndex = 3;
+      endIndex = 4;
+    } else if (currentStep === 3) {
+      startIndex = 4;
+      endIndex = 5;
+    } else if (currentStep === 4) {
+      startIndex = 5;
+      endIndex = 6;
+    }  else if (currentStep === 5) {
+      startIndex = 6;
+      endIndex = employerQuestions.length;
+    }
 
     return employerQuestions.slice(startIndex, endIndex).map((question, index) => (
-      <div key={index + startIndex} className="mb-4">
-        <label>{question.question}</label>
+      <div key={index + startIndex} className="grid mb-4">
+        <label className="text-[15px] md:text-lg text-[#283C63] mb-2">{question.question}</label>
         {question.type === "textarea" ? (
           <textarea
             placeholder={question.placeholder}
-            className="input"
+            className="text-sm md:text-base py-[10px] px-4 border border-[#dbe0eb] rounded-[20px]"
             value={answers[index + startIndex] || ""}
             onChange={(e) => handleAnswerChange(e.target.value, index + startIndex)}
           />
         ) : question.type === "select" ? (
           <select
-            className="input"
+            className="border border-[#dbe0eb] rounded-[20px] px-4 py-[10px]"
             value={answers[index + startIndex] || ""}
             onChange={(e) => handleAnswerChange(e.target.value, index + startIndex)}
           >
@@ -118,7 +177,7 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
         ) : question.type === "radio" ? (
           <div className="flex flex-col">
             {question.options?.map((option, i) => (
-              <label key={i} className="flex items-center mb-2">
+              <label key={i} className="text-[15px] md:text-lg custom-radio step-form-radio relative flex items-center mb-2">
                 <input
                   type="radio"
                   name={`radio_${index + startIndex}`}
@@ -127,7 +186,7 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
                   onChange={() => handleAnswerChange(option, index + startIndex)}
                   className="mr-2"
                 />
-                {option}
+                <span className="text-sm md:text-base w-full text-[#283C63] py-[10px] px-4 border border-[#dbe0eb] rounded-[20px]">{option}</span>
               </label>
             ))}
           </div>
@@ -147,7 +206,7 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
                       handleAnswerChange(selectedOptions.filter((item: string) => item !== option), index + startIndex);
                     }
                   }}
-                  className="mr-2"
+                  className="text-sm md:text-base mr-2"
                 />
                 {option}
               </label>
@@ -157,7 +216,7 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
           <input
             type={question.type}
             placeholder={question.placeholder}
-            className="input"
+            className="text-sm md:text-base py-[10px] px-4 border border-[#dbe0eb] rounded-[20px]"
             value={answers[index + startIndex] || ""}
             onChange={(e) => handleAnswerChange(e.target.value, index + startIndex)}
           />
@@ -167,9 +226,14 @@ const EmployerForm: React.FC<EmployerFormProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="max-w-[800px] mx-auto">
-      <h2 className="text-xl font-bold mb-4">Enter Organization Details</h2>
-      {currentStep < Math.ceil(employerQuestions.length / 2) ? renderQuestions() : <PersonalInfoForm />}
+    <div className="max-w-[800px] mx-auto rounded-[20px] bg-white p-5 md:p-[40px]">
+      {currentStep < Math.ceil(employerQuestions.length / 2) 
+        ? renderQuestions() 
+        : (currentStep === Math.ceil(employerQuestions.length / 2) 
+            ? <IntroSection onContinue={handleNext}/> 
+            : <PersonalInfoForm />
+          )
+      }
       <div className="flex justify-between">
         <button onClick={handleBack} className="button">Back</button>
         {currentStep < Math.ceil(employerQuestions.length / 2) && (
