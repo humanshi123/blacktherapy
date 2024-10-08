@@ -76,7 +76,7 @@ const EmploymentStatus: React.FC<EmploymentStatusProps> = ({
   return (
     <div className="form-main">
       <h2 className="section-title mb-7 md:m-0 text-center md:absolute top-[45px] left-[50%] md:translate-x-[-50%]">
-      Certification
+      Employement Information
       </h2> 
       <div className="bg-white rounded-[20px] p-5 md:p-[50px]">
         {EmploymentStatusQuestions.map((q, index) => (
