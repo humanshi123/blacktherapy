@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation';
 const gothamPro = localFont({
   src: '../assets/fonts/GothamPro.ttf',
   display: 'swap',
-  variable: '--font-gotham',
+  variable: '--font-gotham', 
 })
 const anticDidone = localFont({
   src: '../assets/fonts/AnticDidoneRegular.ttf',

@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-      
+    
 * {
   padding: 0;
   margin: 0;
@@ -261,8 +261,20 @@ button:disabled {
 .custom-radio  input:checked ~ span {
   color: #283C63;
 }
-
-
+.onboarding-form p {
+  color: #686C78;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 15px 0;
+}
+.onboarding-form p span {
+  text-decoration: underline;
+}
+.onboarding-form h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
 .background-consent .after-line {
   display: none;
 }

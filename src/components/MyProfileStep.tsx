@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import QuestionComponent from "./QuestionComponent";
 import { ButtonSvg } from "@/utils/svgicons";
@@ -63,7 +64,7 @@ const availabilityQuestions = [
     options: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
   },
 ];
-
+ 
 interface MyProfileStepProps {
   formData: { [key: string]: any };
   setFormData: React.Dispatch<React.SetStateAction<{ [key: string]: any }>>;

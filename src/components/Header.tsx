@@ -10,7 +10,7 @@ const Header = () => {
 
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
-  };
+  }; 
 
   const handleToggleClose = () => {
     setIsToggleOpen(false);
