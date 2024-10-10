@@ -289,7 +289,12 @@ button:disabled {
 .step-form-radio.custom-radio span::after {
   content: none;
 }
-
+.signature.pencil-cursor {
+  cursor: url("/assets/pencil.png") 4 12,crosshair;
+}
+.declaration-text p span {
+  text-decoration: line-through;
+}
 
 @media (min-width: 768px) {
   .card-wrapper:hover .text-button {

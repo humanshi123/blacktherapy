@@ -1,7 +1,8 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import QuestionComponent from "@/components/QuestionComponent";
 import { ButtonSvg } from "@/utils/svgicons";
+
 const EmploymentStatusQuestions = [
   {
     question: "What is your current employment status?",
@@ -11,13 +12,14 @@ const EmploymentStatusQuestions = [
   {
     question: "Current or Previous Employer Name",
     type: "text",
+    placeholder: "",
   },
   {
     question: "City, State",
     type: "text",
   },
   {
-    question: "Role/Postion",
+    question: "Role/Position",
     type: "text",
   },
   {
@@ -63,39 +65,53 @@ const EmploymentStatus: React.FC<EmploymentStatusProps> = ({
   setIsValid,
   nextStep
 }) => {
-  const validateStep = () => {
+
+  const validateStep = useCallback(() => {
     const isValid = EmploymentStatusQuestions.every(
-      (q, index) => formData[`certification_${index}`] && formData[`certification_${index}`].trim() !== ""
+      (q, index) => formData[`employee_${index}`] && formData[`employee_${index}`].trim() !== ""
     );
     setIsValid(isValid);
-  };
+  }, [formData, setIsValid]);
+
+  useEffect(() => {
+    validateStep();
+  }, [validateStep]);
+
+  
   const handleContinue = () => {
-    // Additional validation if needed
-    nextStep();
+    // Validate and proceed to next step if valid
+    if (EmploymentStatusQuestions.every((q, index) => formData[`employee_${index}`])) {
+      nextStep();
+    }
   };
+
+
   return (
     <div className="form-main">
       <h2 className="section-title mb-7 md:m-0 text-center md:absolute top-[45px] left-[50%] md:translate-x-[-50%]">
-      Employement Information
-      </h2> 
+      Personal Details
+      </h2>
       <div className="bg-white rounded-[20px] p-5 md:p-[50px]">
         {EmploymentStatusQuestions.map((q, index) => (
           <QuestionComponent
             key={index}
             question={q.question}
-            index={`certification_${index}`}
+            index={`employee_${index}`}
             total={EmploymentStatusQuestions.length}
             type={q.type}
+            placeholder={q.placeholder}
             options={q.options}
             formData={formData}
             setFormData={setFormData}
           />
         ))}
-         <div className="flex justify-end mt-[50px]">
+        
+        <div className="flex justify-end mt-[50px]">
         <button onClick={handleContinue} className="button">Continue <ButtonSvg /></button>
         </div>
       </div>
     </div>
   );
 };
+
 export default EmploymentStatus;

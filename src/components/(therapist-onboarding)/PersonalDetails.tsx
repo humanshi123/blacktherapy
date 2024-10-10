@@ -1,10 +1,7 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import QuestionComponent from "./QuestionComponent";
+import QuestionComponent from "@/components/QuestionComponent";
 import { ButtonSvg } from "@/utils/svgicons";
-import previewImage from "../assets/images/img11.png"
-import Image from "next/image";
-import previmg2 from "../assets/images/previmg.png"
 const personalDetailsQuestions = [
   {
     question: "First name",
