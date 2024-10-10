@@ -81,7 +81,7 @@ const DeclarationStep: React.FC<BackgroundProps> = ({
   return (
     <div className="form-main">
      <h2 className="section-title mb-7 md:m-0 text-center md:absolute top-[45px] left-[50%] md:translate-x-[-50%]">
-        Background Checks
+      
       </h2>
       <div className="bg-white rounded-[20px] p-5 md:p-[50px]">
         <p className="text-[#283c63] font-semibold text-xl mb-4 text-center">Authorization for Background Checks</p>
@@ -124,21 +124,19 @@ I also understand that all offers of employment are conditioned on receipt of sa
         ))}
 
         {/* Signature Section */}
-        <div className="mt-5">
-          <h3 className="font-semibold text-lg mb-2">Signature</h3>
-          <div className="border border-gray-300 rounded-lg overflow-hidden">
+        <div className="max-w-[802px] mx-auto  mt-5 relative">
+            <p className="mb-2 text-[#283c63]  ">Signature</p>
             <SignatureCanvas
               ref={sigCanvasRef}
               canvasProps={{
-                width: 500,
+                width: 800,
                 height: 200,
-                className: "sigCanvas"
+                className: "signature pencil-cursor border border-gray-300 rounded-lg"
               }}
-              penColor="black"
+              penColor="#4c4c4c"
               onEnd={saveSignature}
             />
-          </div>
-          <button onClick={clearSignature} className="button mt-2">Clear Signature</button>
+          <button onClick={clearSignature} className="absolute top-8 right-0 bg-[#283c63] text-white rounded-lg px-3 py-1   ">Clear</button>
         </div>
 
         <div className="flex justify-end mt-[50px]">

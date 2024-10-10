@@ -5,7 +5,7 @@ interface QuestionComponentProps {
   question: string;
   index: string | number; // Can be a string or a number
   total: number;
-  type: string; // 'text', 'radio', 'select', etc.
+  type: string; // 'text', 'radio', 'select', 'file', etc.
   placeholder?: string;
   options?: string[]; // For 'radio', 'select', and 'checkbox' types
   formData: { [key: string]: any };
@@ -22,28 +22,46 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
   formData,
   setFormData
 }) => {
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target as HTMLInputElement | HTMLSelectElement;
-
+  
     if (type === 'checkbox') {
       const checkboxTarget = e.target as HTMLInputElement;
       setFormData(prevFormData => {
         const currentValues = prevFormData[name] || [];
         const newValues = checkboxTarget.checked
           ? [...currentValues, value]
-          : currentValues.filter((val: string) => val !== value); // Explicitly typing val as string
+          : currentValues.filter((val: string) => val !== value);
         return { ...prevFormData, [name]: newValues };
       });
+    } else if (type === 'file') {
+      const fileTarget = e.target as HTMLInputElement;
+      const selectedFile = fileTarget.files?.[0]; // Use optional chaining to safely access files
+      if (selectedFile) {
+        // Safely handle file input
+        setFormData(prevFormData => ({
+          ...prevFormData,
+          [name]: selectedFile // Store the first selected file
+        }));
+      } else {
+        console.error('No file selected.');
+      }
     } else {
       setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
     }
   };
-
+  
+  
+  // Convert index to string
   const indexString = index.toString();
-  const isActive = type === 'checkbox'
-    ? Array.isArray(formData[indexString]) && formData[indexString].length > 0
-    : formData[indexString] && formData[indexString].trim() !== '';
 
+  // Determine if the field is active
+  const isActive = type === 'checkbox'
+  ? Array.isArray(formData[indexString]) && formData[indexString].length > 0
+  : typeof formData[indexString] === 'string' && formData[indexString].trim() !== ''; // Updated line
+
+  // Calculate the question number
   const questionNumber = indexString.includes('_')
     ? parseInt(indexString.split('_')[1]) + 1 
     : parseInt(indexString) + 1;
@@ -62,6 +80,8 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
           </div>
           <label className="w-[calc(100%-65px)] md:w-[calc(100%-115px)] text-[#283c63] text-sm">{question}</label>
         </div>
+
+        {/* Render input fields based on type */}
         {type === 'radio' && options ? (
           <div className="flex items-center gap-5 md:gap-[50px] ml-4 md:ml-0">
             {options.map(option => (
@@ -106,6 +126,13 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
               </label>
             ))}
           </div>
+        ) : type === 'file' ? (
+          <input
+            type="file"
+            name={indexString}
+            onChange={handleChange}
+            className="text-[#686C78] w-full px-[18px] h-[45px] text-sm py-2 border border-[#dbe0eb] rounded-[20px] focus:outline-none focus:ring-1 focus:border-[#283C63]"
+          />
         ) : (
           <input
             type={type}

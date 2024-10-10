@@ -106,21 +106,19 @@ const BackgroundChecks: React.FC<BackgroundProps> = ({
         ))}
 
         {/* Signature Section */}
-        <div className="mt-5">
-          <h3 className="font-semibold text-lg mb-2">Signature</h3>
-          <div className="border border-gray-300 rounded-lg overflow-hidden">
+        <div className="max-w-[802px] mx-auto  mt-5 relative">
+            <p className="mb-2 text-[#283c63]  ">Signature</p>
             <SignatureCanvas
               ref={sigCanvasRef}
               canvasProps={{
-                width: 500,
+                width: 800,
                 height: 200,
-                className: "sigCanvas"
+                className: "signature pencil-cursor border border-gray-300 rounded-lg"
               }}
-              penColor="black"
+              penColor="#4c4c4c"
               onEnd={saveSignature}
             />
-          </div>
-          <button onClick={clearSignature} className="button mt-2">Clear Signature</button>
+          <button onClick={clearSignature} className="absolute top-8 right-0 bg-[#283c63] text-white rounded-lg px-3 py-1   ">Clear</button>
         </div>
 
         <div className="flex justify-end mt-[50px]">

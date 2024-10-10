@@ -53,8 +53,8 @@ const EmploymentStatusQuestions = [
 ];
 
 interface EmploymentStatusProps {
-  formData: { [key: string]: string };
-  setFormData: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
+  formData: { [key: string]: any }; // Adjusted to support different types
+  setFormData: React.Dispatch<React.SetStateAction<{ [key: string]: any }>>;
   setIsValid: (isValid: boolean) => void;
   nextStep: () => void;
 }
@@ -65,11 +65,13 @@ const EmploymentStatus: React.FC<EmploymentStatusProps> = ({
   setIsValid,
   nextStep
 }) => {
-
+  
   const validateStep = useCallback(() => {
-    const isValid = EmploymentStatusQuestions.every(
-      (q, index) => formData[`employee_${index}`] && formData[`employee_${index}`].trim() !== ""
-    );
+    const isValid = EmploymentStatusQuestions.every((q, index) => {
+      const value = formData[`employee_${index}`];
+      // Check if the value is a string and not empty for text fields
+      return (typeof value === 'string' && value.trim() !== '') || (q.type === 'file' && value instanceof File);
+    });
     setIsValid(isValid);
   }, [formData, setIsValid]);
 
@@ -77,7 +79,6 @@ const EmploymentStatus: React.FC<EmploymentStatusProps> = ({
     validateStep();
   }, [validateStep]);
 
-  
   const handleContinue = () => {
     // Validate and proceed to next step if valid
     if (EmploymentStatusQuestions.every((q, index) => formData[`employee_${index}`])) {
@@ -85,11 +86,10 @@ const EmploymentStatus: React.FC<EmploymentStatusProps> = ({
     }
   };
 
-
   return (
     <div className="form-main">
       <h2 className="section-title mb-7 md:m-0 text-center md:absolute top-[45px] left-[50%] md:translate-x-[-50%]">
-      Personal Details
+      Employment Details
       </h2>
       <div className="bg-white rounded-[20px] p-5 md:p-[50px]">
         {EmploymentStatusQuestions.map((q, index) => (
@@ -107,7 +107,9 @@ const EmploymentStatus: React.FC<EmploymentStatusProps> = ({
         ))}
         
         <div className="flex justify-end mt-[50px]">
-        <button onClick={handleContinue} className="button">Continue <ButtonSvg /></button>
+          <button onClick={handleContinue} className="button">
+            Continue <ButtonSvg />
+          </button>
         </div>
       </div>
     </div>

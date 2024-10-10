@@ -83,7 +83,7 @@ const References: React.FC<ReferenceFormProps> = ({
   return (
     <div className="form-main">
       <h2 className="section-title mb-7 md:m-0 text-center md:absolute top-[45px] left-[50%] md:translate-x-[-50%]">
-        Personal Details
+        References
       </h2>
       <div className="bg-white rounded-[20px] p-5 md:p-[50px]">
         <p className="text-gray-500 md:text-base text-sm mb-5">
