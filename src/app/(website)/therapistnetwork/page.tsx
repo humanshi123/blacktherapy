@@ -2,11 +2,11 @@
 import { ButtonSvg, LineOne, LineTwo, StepOne, StepSecond, StepThree} from '@/utils/svgicons';
 import BannerSection from '@/app/(website)/components/BannerSection';
 import React, { useState } from 'react';
-import banner from "../../../assets/images/banner-img1.png"
+import banner from "@/assets/images/banner-img1.png"
 import GetStartedCard from '@/app/(website)/components/GetStartedCard';
 import NumberCard from '@/app/(website)/components/NumberCard';
 import RequirementsImage from '@/assets/images/requirements.jpg' 
-import ListImage from '../../../assets/images/li-list.svg'
+import ListImage from '@/assets/images/li-list.svg'
 import Image from 'next/image';
 import { DropDown, FaqTitle } from '@/utils/svgicons';
 import Link from 'next/link';

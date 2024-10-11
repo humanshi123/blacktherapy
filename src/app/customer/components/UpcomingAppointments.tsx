@@ -1,8 +1,8 @@
 import React, { useState, CSSProperties } from "react";
 import Image from "next/image";
 import ReactPaginate from "react-paginate";
-import PervIcon from "../assets/images/pervicon.png";
-import NextIcon from "../assets/images/nexticon.png";
+import PervIcon from "@/assets/images/pervicon.png";
+import NextIcon from "@/assets/images/nexticon.png";
 
 const UpcomingAppointments = () => {
   const [currentPage, setCurrentPage] = useState(0);

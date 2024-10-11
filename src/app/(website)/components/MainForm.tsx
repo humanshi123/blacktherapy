@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import InsuranceForm from "./InsuranceForm";
-import OutOfPocketForm from "./OutOfPocketForm";
-import EmployerForm from "./EmployerForm";
+import InsuranceForm from "@/app/(website)/components/InsuranceForm";
+import OutOfPocketForm from "@/app/(website)/components/OutOfPocketForm";
+import EmployerForm from "@/app/(website)/components/EmployerForm";
 
 const MainForm: React.FC = () => {
   const [formType, setFormType] = useState<string | null>(null);

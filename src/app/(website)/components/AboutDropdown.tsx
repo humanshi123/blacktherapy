@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import about3 from '../../../assets/images/img10.png' // Adjust the import based on your project structure
+import about3 from '@/assets/images/img10.png' // Adjust the import based on your project structure
 import { DropDown } from '@/utils/svgicons';
 
 const dropdownData = [

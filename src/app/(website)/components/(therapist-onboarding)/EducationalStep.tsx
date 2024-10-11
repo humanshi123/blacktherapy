@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import QuestionComponent from "../QuestionComponent";
+import QuestionComponent from "@/app/(website)/components/QuestionComponent";
 import { ButtonSvg, DeleteIcon } from "@/utils/svgicons";
 
 const EducationalQuestions = [

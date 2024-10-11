@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import QuestionComponent from "./QuestionComponent";
+import QuestionComponent from "@/app/(website)/components/QuestionComponent";
 import { ButtonSvg } from "@/utils/svgicons";
 
 const preferredCommunicationQuestions = [

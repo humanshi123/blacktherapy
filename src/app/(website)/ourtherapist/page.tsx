@@ -2,7 +2,7 @@ import BannerSection from '@/app/(website)/components/BannerSection';
 import OurTherapist from '@/app/(website)/components/OurTherapist'
 import TherapyCard from '@/app/(website)/components/TherapyCard'
 import React from 'react'
-import banner from "../../../assets/images/banner-img1.png";
+import banner from "@/assets/images/banner-img1.png";
 
 export default function page() {
   const breadcrumbs = [

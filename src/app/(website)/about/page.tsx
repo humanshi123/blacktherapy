@@ -6,9 +6,9 @@ import AboutDropdown from "@/app/(website)/components/AboutDropdown";
 import AboutFirst from "@/app/(website)/components/AboutFirst";
 import AboutSecond from "@/app/(website)/components/AboutSecond";
 import AboutSlider from "@/app/(website)/components/AboutSlider";
-import banner from "../../../assets/images/banner-img1.png";
-import about1 from "../../../assets/images/img8.png";
-import about2 from "../../../assets/images/img9.png";
+import banner from "@/assets/images/banner-img1.png";
+import about1 from "@/assets/images/img8.png";
+import about2 from "@/assets/images/img9.png";
 
 const dataSlider = [
   {

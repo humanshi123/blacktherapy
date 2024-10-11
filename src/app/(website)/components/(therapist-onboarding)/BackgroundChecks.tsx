@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useEffect, useRef } from "react";
-import QuestionComponent from "../QuestionComponent";
+import QuestionComponent from "@/app/(website)/components/QuestionComponent";
 import { ButtonSvg } from "@/utils/svgicons";
 import SignatureCanvas from "react-signature-canvas";
 

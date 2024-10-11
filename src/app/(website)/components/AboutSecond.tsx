@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import about2 from "../../../assets/images/img9.png";
+import about2 from "@/assets/images/img9.png";
 import Image from "next/image";
 
 const AboutSecond: React.FC = () => {

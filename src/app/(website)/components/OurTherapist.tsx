@@ -1,11 +1,11 @@
 "use client"
 import React, { useState } from "react";
-import image1 from "../../../assets/images/img1.png"
-import image2 from "../../../assets/images/img2.png"
-import image3 from "../../../assets/images/img3.png"
-import image4 from "../../../assets/images/img4.png"
-import image5 from "../../../assets/images/img5.png"
-import image6 from "../../../assets/images/img6.png"
+import image1 from "@/assets/images/img1.png"
+import image2 from "@/assets/images/img2.png"
+import image3 from "@/assets/images/img3.png"
+import image4 from "@/assets/images/img4.png"
+import image5 from "@/assets/images/img5.png"
+import image6 from "@/assets/images/img6.png"
 import TherapyCard from "@/app/(website)/components/TherapyCard";
 import { ButtonSvg } from "@/utils/svgicons";
 

@@ -1,18 +1,18 @@
 "use client";
 import React, { Component, useState } from "react";
-import PersonalDetails from "./(therapist-onboarding)/PersonalDetails";
-import ApplicationCompleted from "./ApplicationCompleted";
-import { WelcomeProcess } from "./(therapist-onboarding)/WelcomeProcess";
-import ApplicationProcess from "./(therapist-onboarding)/ApplicationProcess";
-import CompensationPay from "./(therapist-onboarding)/CompensationPay";
-import EmploymentStatus from "./(therapist-onboarding)/EmploymentStatus";
-import EducationalStep from "./(therapist-onboarding)/EducationalStep";
-import FormStepSeven from "./(therapist-onboarding)/FormStepSeven";
-import References from "./(therapist-onboarding)/References";
-import QualifiedStep from "./(therapist-onboarding)/QualifiedStep";
-import BackgroundChecks from "./(therapist-onboarding)/BackgroundChecks";
-import UploadDocuments from "./(therapist-onboarding)/UploadDocuments";
-import DeclarationStep from "./(therapist-onboarding)/DeclarationStep";
+import PersonalDetails from "@/app/(website)/components/(therapist-onboarding)/PersonalDetails";
+import ApplicationCompleted from "@/app/(website)/components/ApplicationCompleted";
+import { WelcomeProcess } from "@/app/(website)/components/(therapist-onboarding)/WelcomeProcess";
+import ApplicationProcess from "@/app/(website)/components/(therapist-onboarding)/ApplicationProcess";
+import CompensationPay from "@/app/(website)/components/(therapist-onboarding)/CompensationPay";
+import EmploymentStatus from "@/app/(website)/components/(therapist-onboarding)/EmploymentStatus";
+import EducationalStep from "@/app/(website)/components/(therapist-onboarding)/EducationalStep";
+import FormStepSeven from "@/app/(website)/components/(therapist-onboarding)/FormStepSeven";
+import References from "@/app/(website)/components/(therapist-onboarding)/References";
+import QualifiedStep from "@/app/(website)/components/(therapist-onboarding)/QualifiedStep";
+import BackgroundChecks from "@/app/(website)/components/(therapist-onboarding)/BackgroundChecks";
+import UploadDocuments from "@/app/(website)/components/(therapist-onboarding)/UploadDocuments";
+import DeclarationStep from "@/app/(website)/components/(therapist-onboarding)/DeclarationStep";
 
 const steps = [
   { component: WelcomeProcess, requiresValidation: false },

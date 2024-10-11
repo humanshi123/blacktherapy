@@ -1,7 +1,7 @@
 
 import BannerSection from '@/app/(website)/components/BannerSection';
 import React, { useState } from 'react';
-import banner from "../../../assets/images/banner-img1.png"
+import banner from "@/assets/images/banner-img1.png"
 import { CallIcon, EmailIcon, LocationIcon, SubmitIcon } from '@/utils/svgicons';
 import ContactInfoCard from '@/app/(website)/components/ContactInfoCard';
 

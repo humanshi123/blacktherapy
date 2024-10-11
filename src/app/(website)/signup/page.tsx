@@ -5,7 +5,7 @@ import ReactPlayer from "react-player";
 import { ButtonSvg, LogoIcon } from "@/utils/svgicons";
 import InputField from "@/app/(website)/components/InputField";
 import Image from "next/image";
-import animate from "../../../assets/images/loginslide.png"
+import animate from "@/assets/images/loginslide.png"
 
 const Page: React.FC = () => {
   const [firstName, setFirstName] = useState("");

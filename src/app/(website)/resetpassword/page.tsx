@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { ButtonSvg, LogoIcon } from "@/utils/svgicons";
 import InputField from "@/app/(website)/components/InputField";
 import Image from "next/image";
-import animate from "../../../assets/images/loginslide.png"
+import animate from "@/assets/images/loginslide.png"
 import { useRouter } from 'next/router';
 import Link from "next/link";
-import resetimg from "../../../assets/images/img12.png"
+import resetimg from "@/assets/images/img12.png"
 
 const Page = () => {
   const [showPopup, setShowPopup] = useState(false);

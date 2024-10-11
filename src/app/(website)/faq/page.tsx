@@ -1,10 +1,10 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import about3 from '../../../assets/images/img10.png' // Adjust the import based on your project structure
+import about3 from '@/assets/images/img10.png' // Adjust the import based on your project structure
 import { DropDown, FaqTitle } from '@/utils/svgicons';
 import { title } from 'process';
-import banner from "../../../assets/images/banner-img1.png";
+import banner from "@/assets/images/banner-img1.png";
 import BannerSection from '@/app/(website)/components/BannerSection';
 
 

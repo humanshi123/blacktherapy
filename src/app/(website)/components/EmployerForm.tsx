@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import PersonalInfoForm from "./PersonalInfoForm";
-import IntroSection from "./IntroSection";
+import PersonalInfoForm from "@/app/(website)/components/PersonalInfoForm";
+import IntroSection from "@/app/(website)/components/IntroSection";
 
 interface EmployerFormProps {
   onBack: () => void;

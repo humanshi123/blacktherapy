@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
 import ReactPaginate from "react-paginate";
-import PervIcon from "../assets/images/pervicon.png";
-import NextIcon from "../assets/images/nexticon.png";
-import Therapist1 from "../assets/images/therapist1.jpg";
-import Therapist2 from "../assets/images/therapist2.jpg";
+import PervIcon from "@/assets/images/pervicon.png";
+import NextIcon from "@/assets/images/nexticon.png";
+import Therapist1 from "@/assets/images/therapist1.jpg";
+import Therapist2 from "@/assets/images/therapist2.jpg";
 import React, { useState, ReactNode } from "react";
-import { YoutubeIcon } from "@/utils/svgicon";
+import { YoutubeIcon } from "@/utils/svgicons";
 
 interface ModalProps {
   isOpen: boolean;
