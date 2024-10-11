@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import "./adminstyles.css";
-import SideNav from "@/app/admin/components/SideNav";
+import "./clientstyles.css";
+import SideNav from "@/app/customer/components/SideNav";
 import localFont from "next/font/local";
-import MobileHeader from "@/app/admin/components/MobileHeader";
-// import fontt from "../../assets/fonts"
+import MobileHeader from "@/app/customer/components/MobileHeader";
+
 const gothamPro = localFont({
   src: '../../assets/fonts/GothamPro.ttf',
   display: 'swap',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ 
+}: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
