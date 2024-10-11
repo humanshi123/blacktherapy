@@ -1,4 +1,4 @@
-import OnboardingForm from '@/components/OnboardingForm';
+import OnboardingForm from '@/app/(website)/components/OnboardingForm';
 import React from 'react';
 
 const Page = () => {
