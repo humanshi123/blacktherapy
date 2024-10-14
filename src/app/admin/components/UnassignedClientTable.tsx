@@ -154,7 +154,7 @@ const UnassignedClientTable: React.FC<UnassignedClientTableProps> = ({ data, mov
         contentLabel="Update Assignment"
         bodyOpenClassName='overflow-hidden'
         className="modal max-w-[1180px] bg-white p-5 mx-auto rounded-[20px] w-full  max-h-[90vh] overflow-scroll overflo-custom "
-        overlayClassName="w-full h-full fixed inset-0 px-3 bg-gray-500 bg-opacity-75 flex items-center justify-center"
+        overlayClassName="w-full h-full fixed inset-0  px-3 bg-gray-500 bg-opacity-75 flex items-center justify-center"
       >
         <h2 className="text-xl mb-4">Update Assignment Information</h2>
         <form onSubmit={handleFormSubmit}>
