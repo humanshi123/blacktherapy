@@ -17,7 +17,7 @@ const SideNav = () => {
 
   const [isCollapsed, setIsCollapsed] = useState(false);
   
-
+  
   const pathname = usePathname(); 
 
   const toggleSidebar = () => {

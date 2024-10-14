@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from 'next/navigation'; 
-import { BillingInsuranceIcon, ChangePasswordIcon, DashboardIcon, Humbruger, Logo, LogOut, ProfileIcon, WellnessIcon } from "@/utils/svgicons";
+import { DashboardIcon, Humbruger, Logo, LogOut, BillingIcon, PasswordIcon, PaymentHistoryIcon, PayRequestIcon, AssignIcon } from "@/utils/svgicons";
+
 import Link from "next/link";
-import './SideNav.css'; 
+import './SideNav.css';  
 import { useRouter } from "next/navigation";
 
 const SideNav = () => {
@@ -29,44 +30,50 @@ const SideNav = () => {
         <div className="header min-h-[46px] justify-between gap-[10px]">
           {!isCollapsed && (
             <div className="logoContainer">
-              <Link href="/customer/dashboard">
+              <Link href="/therapist/dashboard">
                 <Logo />
-              </Link>
+              </Link> 
             </div>
           )}
           <button onClick={toggleSidebar} className="hamburgerButton">
             <Humbruger />
           </button>
-        </div>
+        </div> 
         <ul className="navList">
-          <li className={isActive('/customer/dashboard')}>
-            <Link href="/customer/dashboard">
+          <li className={isActive('/therapist/dashboard')}>
+            <Link href="/therapist/dashboard">
               <DashboardIcon />
               {!isCollapsed && <span>Dashboard</span>}
             </Link>
           </li>
-          <li className={isActive('/customer/wellness')}>
-            <Link href="/customer/wellness">
-              <WellnessIcon />
-              {!isCollapsed && <span>Wellness</span>}
+          <li className={isActive('/therapist/assignments')}>
+          <Link href="/therapist/assignments">
+              <AssignIcon/>
+              {!isCollapsed && <span>Assignments</span>}
             </Link>
           </li>
-          <li className={isActive('/customer/profile')}>
-            <Link href="/customer/profile">
-              <ProfileIcon />
+          <li className={isActive('/therapist/payment-request')}>
+            <Link href="/therapist/payment-request">
+              <PayRequestIcon/>
+              {!isCollapsed && <span>Payment Requests</span>}
+            </Link>
+          </li>
+          <li className={isActive('/therapist/payment-history')}>
+            <Link href="/therapist/payment-history">
+            <PaymentHistoryIcon />
+              {!isCollapsed && <span>Payment History</span>}
+            </Link>
+          </li>
+          <li className={isActive('/therapist/profile')}>
+            <Link href="/therapist/profile">
+            <PasswordIcon/>
               {!isCollapsed && <span>Profile</span>}
             </Link>
           </li>
-          <li className={isActive('/customer/change-password')}>
-            <Link href="/customer/change-password">
-              <ChangePasswordIcon />
-              {!isCollapsed && <span>Change Password</span>}
-            </Link>
-          </li>
-          <li className={isActive('/customer/billing-insurance')}>
-          <Link href="/customer/billing-insurance">
-              <BillingInsuranceIcon />
-              {!isCollapsed && <span>Billing & Insurance</span>}
+          <li className={isActive('/therapist/view-task')}>
+            <Link href="/therapist/view-task">
+            <BillingIcon />
+              {!isCollapsed && <span>View Task</span>}
             </Link>
           </li>
         </ul>
